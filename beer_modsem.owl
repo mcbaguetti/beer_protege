@@ -25,6 +25,12 @@
          rdfs:range :beer .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#has_flavour
+:has_flavour rdf:type owl:ObjectProperty ;
+             rdfs:domain :beer ;
+             rdfs:range :flavour .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#has_genre
 :has_genre rdf:type owl:ObjectProperty ;
            rdfs:domain :beer ;
@@ -40,7 +46,7 @@
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#has_origin
 :has_origin rdf:type owl:ObjectProperty ;
             rdfs:domain :beer ;
-            rdfs:range :origin .
+            rdfs:range :region_origin .
 
 
 #################################################################
@@ -140,7 +146,7 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#city
 :city rdf:type owl:Class ;
-      rdfs:subClassOf :origin .
+      rdfs:subClassOf :region_origin .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#collab_beer
@@ -159,7 +165,7 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#country
 :country rdf:type owl:Class ;
-         rdfs:subClassOf :origin .
+         rdfs:subClassOf :region_origin .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#craft_style
@@ -245,13 +251,13 @@
        rdfs:subClassOf :flavour .
 
 
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#origin
-:origin rdf:type owl:Class .
-
-
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#other_ingredients
 :other_ingredients rdf:type owl:Class ;
                    rdfs:subClassOf :ingredients .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#region_origin
+:region_origin rdf:type owl:Class .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#roasty
