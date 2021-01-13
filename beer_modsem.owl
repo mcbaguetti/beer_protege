@@ -202,7 +202,25 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#beer
 :beer rdf:type owl:Class ;
-      owl:equivalentClass [ rdf:type owl:Restriction ;
+      owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :has_ingredients ;
+                                                   owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                   owl:onClass :malt
+                                                 ]
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :has_ingredients ;
+                                                   owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                   owl:onClass :water
+                                                 ]
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :has_ingredients ;
+                                                   owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                   owl:onClass :yeast
+                                                 ]
+                                               ) ;
+                            rdf:type owl:Class
+                          ] ,
+                          [ rdf:type owl:Restriction ;
                             owl:onProperty :has_ingredients ;
                             owl:someValuesFrom :other_ingredient
                           ] ,
@@ -210,21 +228,6 @@
                             owl:onProperty :created_by ;
                             owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                             owl:onClass :beer_producer
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :has_ingredients ;
-                            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                            owl:onClass :malt
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :has_ingredients ;
-                            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                            owl:onClass :water
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :has_ingredients ;
-                            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                            owl:onClass :yeast
                           ] .
 
 
