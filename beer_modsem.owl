@@ -516,6 +516,23 @@
 #    Individuals
 #################################################################
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#LoverBeer
+:LoverBeer rdf:type owl:NamedIndividual ,
+                    :brewery ;
+           :creates :Sanbiki .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Moor_Beer_Company
+:Moor_Beer_Company rdf:type owl:NamedIndividual ,
+                            :brewery ;
+                   :creates :Sanbiki .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Sanbiki
+:Sanbiki rdf:type owl:NamedIndividual ,
+                  :collab_beer .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Ca'_Del_Brado
 <http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Ca'_Del_Brado> rdf:type owl:NamedIndividual ,
                                                                                       :brewery ;
