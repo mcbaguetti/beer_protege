@@ -78,6 +78,11 @@
       rdfs:subClassOf :fermentation .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#amber_color
+:amber_color rdf:type owl:Class ;
+             rdfs:subClassOf :color .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#any_fermentation
 :any_fermentation rdf:type owl:Class ;
                   owl:equivalentClass [ rdf:type owl:Class ;
@@ -183,6 +188,11 @@
              rdfs:subClassOf :era .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#dark_color
+:dark_color rdf:type owl:Class ;
+            rdfs:subClassOf :color .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#era
 :era rdf:type owl:Class .
 
@@ -207,6 +217,11 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#genre
 :genre rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#high_ibu
+:high_ibu rdf:type owl:Class ;
+          rdfs:subClassOf :ibu .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#high_strength
@@ -252,6 +267,11 @@
      rdfs:subClassOf :container .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#low_ibu
+:low_ibu rdf:type owl:Class ;
+         rdfs:subClassOf :ibu .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#malt
 :malt rdf:type owl:Class ;
       rdfs:subClassOf :ingredient .
@@ -262,9 +282,19 @@
        rdfs:subClassOf :flavour .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#medium_ibu
+:medium_ibu rdf:type owl:Class ;
+            rdfs:subClassOf :ibu .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#other_ingredient
 :other_ingredient rdf:type owl:Class ;
                   rdfs:subClassOf :ingredient .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#pale_color
+:pale_color rdf:type owl:Class ;
+            rdfs:subClassOf :color .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#region_origin
