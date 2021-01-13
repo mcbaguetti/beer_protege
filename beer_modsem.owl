@@ -26,7 +26,9 @@
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_alcohol
-:has_alcohol rdf:type owl:ObjectProperty .
+:has_alcohol rdf:type owl:ObjectProperty ;
+             rdfs:domain :beer ;
+             rdfs:range :abv .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_color
@@ -40,12 +42,6 @@
 :has_flavour rdf:type owl:ObjectProperty ;
              rdfs:domain :beer ;
              rdfs:range :flavour .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_genre
-:has_genre rdf:type owl:ObjectProperty ;
-           rdfs:domain :beer ;
-           rdfs:range :style_family .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_ibu
@@ -64,6 +60,12 @@
 :has_origin rdf:type owl:ObjectProperty ;
             rdfs:domain :beer ;
             rdfs:range :region_origin .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_style
+:has_style rdf:type owl:ObjectProperty ;
+           rdfs:domain :beer ;
+           rdfs:range :style_family .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#mixed_with
@@ -87,7 +89,7 @@
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_bitterness
 :has_bitterness rdf:type owl:DatatypeProperty ,
                          owl:FunctionalProperty ;
-                rdfs:domain :beer ;
+                rdfs:domain :ibu ;
                 rdfs:range xsd:nonNegativeInteger .
 
 
@@ -530,7 +532,8 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Sanbiki
 :Sanbiki rdf:type owl:NamedIndividual ,
-                  :collab_beer .
+                  :collab_beer ;
+         :has_year "2018"^^xsd:nonNegativeInteger .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Ca'_Del_Brado
