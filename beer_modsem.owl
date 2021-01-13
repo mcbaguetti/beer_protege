@@ -62,6 +62,13 @@
             rdfs:range :region_origin .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#mixed_with
+:mixed_with rdf:type owl:ObjectProperty ,
+                     owl:SymmetricProperty ;
+            rdfs:domain :beer ;
+            rdfs:range :beer .
+
+
 #################################################################
 #    Data properties
 #################################################################
@@ -154,6 +161,16 @@
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#bitter
 :bitter rdf:type owl:Class ;
         rdfs:subClassOf :flavour .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#blended_beer
+:blended_beer rdf:type owl:Class ;
+              owl:equivalentClass [ rdf:type owl:Restriction ;
+                                    owl:onProperty :mixed_with ;
+                                    owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :beer
+                                  ] ;
+              rdfs:subClassOf :beer .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#bottle
