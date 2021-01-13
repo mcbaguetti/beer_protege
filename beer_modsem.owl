@@ -12,6 +12,13 @@
 #    Object Properties
 #################################################################
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#created_by
+:created_by rdf:type owl:ObjectProperty ;
+            owl:inverseOf :creates ;
+            rdfs:domain :beer ;
+            rdfs:range :beer_producer .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#creates
 :creates rdf:type owl:ObjectProperty ;
          rdfs:domain :beer_producer ;
@@ -22,8 +29,8 @@
 #    Classes
 #################################################################
 
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#alcool_volume
-:alcool_volume rdf:type owl:Class .
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#abv
+:abv rdf:type owl:Class .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#beer
