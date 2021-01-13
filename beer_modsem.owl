@@ -46,6 +46,11 @@
 :beer_producer rdf:type owl:Class .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#brewery
+:brewery rdf:type owl:Class ;
+         rdfs:subClassOf :beer_producer .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#city
 :city rdf:type owl:Class ;
       rdfs:subClassOf :origin .
@@ -83,6 +88,11 @@
 :genre rdf:type owl:Class .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#homebrewer
+:homebrewer rdf:type owl:Class ;
+            rdfs:subClassOf :beer_producer .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#hop
 :hop rdf:type owl:Class ;
      rdfs:subClassOf :ingredients .
@@ -90,6 +100,11 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#ibu
 :ibu rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#industry
+:industry rdf:type owl:Class ;
+          rdfs:subClassOf :beer_producer .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#ingredients
