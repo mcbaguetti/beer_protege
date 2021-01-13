@@ -77,7 +77,7 @@
 :has_abv rdf:type owl:DatatypeProperty ,
                   owl:FunctionalProperty ;
          rdfs:domain :beer ;
-         rdfs:range xsd:nonNegativeInteger .
+         rdfs:range xsd:float .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#has_bitterness
@@ -293,7 +293,18 @@
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#ibu
-:ibu rdf:type owl:Class .
+:ibu rdf:type owl:Class ;
+     owl:equivalentClass [ rdf:type owl:Restriction ;
+                           owl:onProperty :has_bitterness ;
+                           owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                owl:onDatatype xsd:nonNegativeInteger ;
+                                                owl:withRestrictions ( [ xsd:minInclusive "0"^^xsd:nonNegativeInteger
+                                                                       ]
+                                                                       [ xsd:maxInclusive "120"^^xsd:nonNegativeInteger
+                                                                       ]
+                                                                     )
+                                              ]
+                         ] .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#industry
