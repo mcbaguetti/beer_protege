@@ -89,6 +89,10 @@
 :beer_producer rdf:type owl:Class .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#bottled
+:bottled rdf:type owl:Class .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#bottom_fermented
 :bottom_fermented rdf:type owl:Class ;
                   rdfs:subClassOf :fermentation .
@@ -123,6 +127,19 @@
          rdfs:subClassOf :origin .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#craft_style
+:craft_style rdf:type owl:Class ;
+             rdfs:subClassOf :era .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#dominant_flavour
+:dominant_flavour rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#era
+:era rdf:type owl:Class .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#fermentation
 :fermentation rdf:type owl:Class .
 
@@ -139,6 +156,11 @@
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#high_strength
 :high_strength rdf:type owl:Class ;
                rdfs:subClassOf :abv .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#historical_style
+:historical_style rdf:type owl:Class ;
+                  rdfs:subClassOf :era .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#homebrewer
@@ -201,6 +223,11 @@
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#top_fermented
 :top_fermented rdf:type owl:Class ;
                rdfs:subClassOf :fermentation .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#traditional_style
+:traditional_style rdf:type owl:Class ;
+                   rdfs:subClassOf :era .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#very_high_strength
