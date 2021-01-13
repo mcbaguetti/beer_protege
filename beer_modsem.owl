@@ -34,7 +34,12 @@
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#beer
-:beer rdf:type owl:Class .
+:beer rdf:type owl:Class ;
+      owl:equivalentClass [ rdf:type owl:Restriction ;
+                            owl:onProperty :created_by ;
+                            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass :beer_producer
+                          ] .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#beer_producer
@@ -48,6 +53,11 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#collab_beer
 :collab_beer rdf:type owl:Class ;
+             owl:equivalentClass [ rdf:type owl:Restriction ;
+                                   owl:onProperty :created_by ;
+                                   owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :beer_producer
+                                 ] ;
              rdfs:subClassOf :beer .
 
 
