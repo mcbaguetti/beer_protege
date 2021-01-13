@@ -13,6 +13,11 @@
 #################################################################
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#created_by
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#has_alcohol
+:has_alcohol rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#created_by
 :created_by rdf:type owl:ObjectProperty ;
             owl:inverseOf :creates ;
             rdfs:domain :beer ;
@@ -444,12 +449,6 @@
 #    Individuals
 #################################################################
 
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Cantillon
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Nessun_Dorma
-:Nessun_Dorma rdf:type owl:NamedIndividual ,
-                       :beer .
-
-
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Ca'_Del_Brado
 <http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Ca'_Del_Brado> rdf:type owl:NamedIndividual ,
                                                                                       :brewery ;
@@ -461,7 +460,12 @@
                     :brewery .
 
 
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Rosé_de_Gambrinus
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Nessun_Dorma
+:Nessun_Dorma rdf:type owl:NamedIndividual ,
+                       :beer .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Rosé_de_Gambrinus
 :Rosé_de_Gambrinus rdf:type owl:NamedIndividual ,
                             :beer ;
                    :created_by :Cantillon .
