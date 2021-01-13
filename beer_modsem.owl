@@ -130,8 +130,9 @@
         rdfs:subClassOf :flavour .
 
 
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#bottled
-:bottled rdf:type owl:Class .
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#bottle
+:bottle rdf:type owl:Class ;
+        rdfs:subClassOf :container .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#bottom_fermented
@@ -142,6 +143,11 @@
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#brewery
 :brewery rdf:type owl:Class ;
          rdfs:subClassOf :beer_producer .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#can
+:can rdf:type owl:Class ;
+     rdfs:subClassOf :container .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#city
@@ -161,6 +167,10 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#color
 :color rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#container
+:container rdf:type owl:Class .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#country
@@ -235,6 +245,11 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#ingredient
 :ingredient rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#keg
+:keg rdf:type owl:Class ;
+     rdfs:subClassOf :container .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#malt
