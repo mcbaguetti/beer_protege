@@ -71,6 +71,11 @@
                   rdfs:subClassOf :fermentation .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#balanced
+:balanced rdf:type owl:Class ;
+          rdfs:subClassOf :flavour .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#beer
 :beer rdf:type owl:Class ;
       owl:equivalentClass [ rdf:type owl:Restriction ;
@@ -82,11 +87,26 @@
                             owl:onProperty :has_ingredients ;
                             owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                             owl:onClass :malt
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :has_ingredients ;
+                            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass :water
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :has_ingredients ;
+                            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass :yeast
                           ] .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#beer_producer
 :beer_producer rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#bitter
+:bitter rdf:type owl:Class ;
+        rdfs:subClassOf :flavour .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#bottled
@@ -132,10 +152,6 @@
              rdfs:subClassOf :era .
 
 
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#dominant_flavour
-:dominant_flavour rdf:type owl:Class .
-
-
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#era
 :era rdf:type owl:Class .
 
@@ -144,9 +160,18 @@
 :fermentation rdf:type owl:Class .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#flavour
+:flavour rdf:type owl:Class .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#fruit
 :fruit rdf:type owl:Class ;
-       rdfs:subClassOf :ingredients .
+       rdfs:subClassOf :others .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#fruity
+:fruity rdf:type owl:Class ;
+        rdfs:subClassOf :flavour .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#genre
@@ -170,7 +195,12 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#hop
 :hop rdf:type owl:Class ;
-     rdfs:subClassOf :ingredients .
+     rdfs:subClassOf :others .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#hoppy
+:hoppy rdf:type owl:Class ;
+       rdfs:subClassOf :flavour .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#ibu
@@ -182,6 +212,10 @@
           rdfs:subClassOf :beer_producer .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#ingredient
+:ingredient rdf:type owl:Class .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#ingredients
 :ingredients rdf:type owl:Class .
 
@@ -189,6 +223,11 @@
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#malt
 :malt rdf:type owl:Class ;
       rdfs:subClassOf :ingredients .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#malty
+:malty rdf:type owl:Class ;
+       rdfs:subClassOf :flavour .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#origin
@@ -200,14 +239,34 @@
         rdfs:subClassOf :ingredients .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#roasty
+:roasty rdf:type owl:Class ;
+        rdfs:subClassOf :flavour .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#session_strength
 :session_strength rdf:type owl:Class ;
                   rdfs:subClassOf :abv .
 
 
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#spices
-:spices rdf:type owl:Class ;
-        rdfs:subClassOf :ingredients .
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#smoke
+:smoke rdf:type owl:Class ;
+       rdfs:subClassOf :flavour .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#sour
+:sour rdf:type owl:Class ;
+      rdfs:subClassOf :flavour .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#spice
+:spice rdf:type owl:Class ;
+       rdfs:subClassOf :others .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#spicy
+:spicy rdf:type owl:Class ;
+       rdfs:subClassOf :flavour .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#standard_strength
@@ -220,6 +279,11 @@
            rdfs:subClassOf :genre .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#sweet
+:sweet rdf:type owl:Class ;
+       rdfs:subClassOf :flavour .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#top_fermented
 :top_fermented rdf:type owl:Class ;
                rdfs:subClassOf :fermentation .
@@ -230,14 +294,29 @@
                    rdfs:subClassOf :era .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#vegetable
+:vegetable rdf:type owl:Class ;
+           rdfs:subClassOf :others .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#very_high_strength
 :very_high_strength rdf:type owl:Class ;
                     rdfs:subClassOf :abv .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#water
+:water rdf:type owl:Class ;
+       rdfs:subClassOf :ingredients .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#wild_fermented
 :wild_fermented rdf:type owl:Class ;
                 rdfs:subClassOf :fermentation .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#wood
+:wood rdf:type owl:Class ;
+      rdfs:subClassOf :flavour .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#yeast
