@@ -12,10 +12,10 @@
 #    Object Properties
 #################################################################
 
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#create
-:create rdf:type owl:ObjectProperty ;
-        rdfs:domain :beer_producer ;
-        rdfs:range :beer .
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#creates
+:creates rdf:type owl:ObjectProperty ;
+         rdfs:domain :beer_producer ;
+         rdfs:range :beer .
 
 
 #################################################################
