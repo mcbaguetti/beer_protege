@@ -12,46 +12,11 @@
 #    Object Properties
 #################################################################
 
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#has_beer_feature
-:has_beer_feature rdf:type owl:ObjectProperty ;
-                  rdfs:domain :beer ;
-                  rdfs:range :beer_features .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#has_city
-:has_city rdf:type owl:ObjectProperty ;
-          rdfs:subPropertyOf :has_origin ;
-          rdfs:domain :beer ;
-          rdfs:range :city .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#has_container
-:has_container rdf:type owl:ObjectProperty ;
-               rdfs:domain :beer ;
-               rdfs:range :container .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#has_country
-:has_country rdf:type owl:ObjectProperty ;
-             rdfs:subPropertyOf :has_origin ;
-             rdfs:domain :beer ;
-             rdfs:range :country .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#has_era
-:has_era rdf:type owl:ObjectProperty ;
-         rdfs:subPropertyOf :has_beer_feature ;
-         rdf:type owl:FunctionalProperty ;
-         rdfs:domain :beer ;
-         rdfs:range :era .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#has_fermentation
-:has_fermentation rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf :has_beer_feature ;
-                  rdf:type owl:FunctionalProperty ;
-                  rdfs:domain :beer ;
-                  rdfs:range :fermentation .
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#blended_with
+:blended_with rdf:type owl:ObjectProperty ,
+                       owl:SymmetricProperty ;
+              rdfs:domain :beer ;
+              rdfs:range :beer .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#created_by
@@ -74,12 +39,54 @@
              rdfs:range :abv .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_beer_feature
+:has_beer_feature rdf:type owl:ObjectProperty ;
+                  rdfs:domain :beer ;
+                  rdfs:range :beer_features .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_city
+:has_city rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf :has_origin ;
+          rdfs:domain :beer ;
+          rdfs:range :city .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_color
 :has_color rdf:type owl:ObjectProperty ;
            rdfs:subPropertyOf :has_beer_feature ;
            rdf:type owl:FunctionalProperty ;
            rdfs:domain :beer ;
            rdfs:range :color .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_container
+:has_container rdf:type owl:ObjectProperty ;
+               rdfs:domain :beer ;
+               rdfs:range :container .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_country
+:has_country rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :has_origin ;
+             rdfs:domain :beer ;
+             rdfs:range :country .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_era
+:has_era rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf :has_beer_feature ;
+         rdf:type owl:FunctionalProperty ;
+         rdfs:domain :beer ;
+         rdfs:range :era .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_fermentation
+:has_fermentation rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf :has_beer_feature ;
+                  rdf:type owl:FunctionalProperty ;
+                  rdfs:domain :beer ;
+                  rdfs:range :fermentation .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_flavour
@@ -118,13 +125,6 @@
            rdfs:range :style_family .
 
 
-###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#mixed_with
-:mixed_with rdf:type owl:ObjectProperty ,
-                     owl:SymmetricProperty ;
-            rdfs:domain :beer ;
-            rdfs:range :beer .
-
-
 #################################################################
 #    Data properties
 #################################################################
@@ -152,35 +152,6 @@
 #################################################################
 #    Classes
 #################################################################
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#base_malts
-:base_malts rdf:type owl:Class ;
-            owl:equivalentClass [ rdf:type owl:Class ;
-                                  owl:oneOf ( :Munich_malt
-                                              :Pale_malt
-                                              :Pils_malt
-                                              :Smoked_malt
-                                              :Vienna_malt
-                                            )
-                                ] ;
-            rdfs:subClassOf :malt ;
-            owl:disjointWith :special_malts .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#beer_features
-:beer_features rdf:type owl:Class .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#special_malts
-:special_malts rdf:type owl:Class ;
-               owl:equivalentClass [ rdf:type owl:Class ;
-                                     owl:oneOf ( :Caramelized_malt
-                                                 :NonCaramelized_malt
-                                                 :Roasted_malt
-                                               )
-                                   ] ;
-               rdfs:subClassOf :malt .
-
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#abv
 :abv rdf:type owl:Class ;
@@ -222,6 +193,20 @@
           rdfs:subClassOf :flavour .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#base_malts
+:base_malts rdf:type owl:Class ;
+            owl:equivalentClass [ rdf:type owl:Class ;
+                                  owl:oneOf ( :Munich_malt
+                                              :Pale_malt
+                                              :Pils_malt
+                                              :Smoked_malt
+                                              :Vienna_malt
+                                            )
+                                ] ;
+            rdfs:subClassOf :malt ;
+            owl:disjointWith :special_malts .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#beer
 :beer rdf:type owl:Class ;
       owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
@@ -253,6 +238,10 @@
                           ] .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#beer_features
+:beer_features rdf:type owl:Class .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#beer_producer
 :beer_producer rdf:type owl:Class .
 
@@ -265,7 +254,7 @@
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#blended_beer
 :blended_beer rdf:type owl:Class ;
               owl:equivalentClass [ rdf:type owl:Restriction ;
-                                    owl:onProperty :mixed_with ;
+                                    owl:onProperty :blended_with ;
                                     owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                     owl:onClass :beer
                                   ] ;
@@ -510,6 +499,17 @@
       rdfs:subClassOf :flavour .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#special_malts
+:special_malts rdf:type owl:Class ;
+               owl:equivalentClass [ rdf:type owl:Class ;
+                                     owl:oneOf ( :Caramelized_malt
+                                                 :NonCaramelized_malt
+                                                 :Roasted_malt
+                                               )
+                                   ] ;
+               rdfs:subClassOf :malt .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#speciality_beer
 :speciality_beer rdf:type owl:Class ;
                  rdfs:subClassOf :style_family .
@@ -599,60 +599,25 @@
 #    Individuals
 #################################################################
 
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Caramelized_malt
-:Caramelized_malt rdf:type owl:NamedIndividual ,
-                           :special_malts .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Munich_malt
-:Munich_malt rdf:type owl:NamedIndividual ,
-                      :base_malts .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#NonCaramelized_malt
-:NonCaramelized_malt rdf:type owl:NamedIndividual ,
-                              :special_malts .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Pale_malt
-:Pale_malt rdf:type owl:NamedIndividual ,
-                    :base_malts .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Pils_malt
-:Pils_malt rdf:type owl:NamedIndividual ,
-                    :base_malts .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Raspberry
-:Raspberry rdf:type owl:NamedIndividual ,
-                    :fruit .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Roasted_malt
-:Roasted_malt rdf:type owl:NamedIndividual ,
-                       :special_malts .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Smoked_malt
-:Smoked_malt rdf:type owl:NamedIndividual ,
-                      :base_malts .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Vienna_malt
-:Vienna_malt rdf:type owl:NamedIndividual ,
-                      :base_malts .
-
-
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Ca'_Del_Brado
 <http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Ca'_Del_Brado> rdf:type owl:NamedIndividual ,
                                                                                       :brewery ;
                                                                              :creates :Nessun_Dorma .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Fou'Foune
+<http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Fou'Foune> rdf:type owl:NamedIndividual .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Cantillon
 :Cantillon rdf:type owl:NamedIndividual ,
-                    :brewery .
+                    :brewery ;
+           :creates <http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Fou'Foune> .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Caramelized_malt
+:Caramelized_malt rdf:type owl:NamedIndividual ,
+                           :special_malts .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#LoverBeer
@@ -667,9 +632,39 @@
                    :creates :Sanbiki .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Munich_malt
+:Munich_malt rdf:type owl:NamedIndividual ,
+                      :base_malts .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Nessun_Dorma
 :Nessun_Dorma rdf:type owl:NamedIndividual ,
                        :beer .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#NonCaramelized_malt
+:NonCaramelized_malt rdf:type owl:NamedIndividual ,
+                              :special_malts .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Pale_malt
+:Pale_malt rdf:type owl:NamedIndividual ,
+                    :base_malts .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Pils_malt
+:Pils_malt rdf:type owl:NamedIndividual ,
+                    :base_malts .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Raspberry
+:Raspberry rdf:type owl:NamedIndividual ,
+                    :fruit .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Roasted_malt
+:Roasted_malt rdf:type owl:NamedIndividual ,
+                       :special_malts .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Rosé_de_Gambrinus
@@ -684,6 +679,16 @@
 :Sanbiki rdf:type owl:NamedIndividual ,
                   :collab_beer ;
          :has_year "2018"^^xsd:nonNegativeInteger .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Smoked_malt
+:Smoked_malt rdf:type owl:NamedIndividual ,
+                      :base_malts .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Vienna_malt
+:Vienna_malt rdf:type owl:NamedIndividual ,
+                      :base_malts .
 
 
 #################################################################
