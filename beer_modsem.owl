@@ -600,8 +600,7 @@
 #################################################################
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Ca'_Del_Brado
-<http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Ca'_Del_Brado> rdf:type owl:NamedIndividual ,
-                                                                                      :brewery ;
+<http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Ca'_Del_Brado> rdf:type owl:NamedIndividual ;
                                                                              :creates :Nessun_Dorma .
 
 
@@ -639,7 +638,8 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Nessun_Dorma
 :Nessun_Dorma rdf:type owl:NamedIndividual ,
-                       :beer .
+                       :beer ;
+              :created_by <http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Ca'_Del_Brado> .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#NonCaramelized_malt
