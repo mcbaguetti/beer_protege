@@ -6,11 +6,21 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @base <http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer> .
 
-<http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer> rdf:type owl:Ontology .
+<http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer> rdf:type owl:Ontology ;
+                                                                rdfs:label "Beer Ontology" .
 
 #################################################################
 #    Object Properties
 #################################################################
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#part_of
+:part_of rdf:type owl:ObjectProperty ,
+                  owl:TransitiveProperty ;
+         rdfs:domain :city ,
+                     :country ;
+         rdfs:range :country ,
+                    :region_origin .
+
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#blended_with
 :blended_with rdf:type owl:ObjectProperty ,
@@ -175,7 +185,7 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#amber_lager
 :amber_lager rdf:type owl:Class ;
-             rdfs:subClassOf :dark_lager .
+             rdfs:subClassOf :style_family .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#any_fermentation
