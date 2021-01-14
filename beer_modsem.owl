@@ -13,18 +13,10 @@
 #    Object Properties
 #################################################################
 
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#part_of
-:part_of rdf:type owl:ObjectProperty ,
-                  owl:TransitiveProperty ;
-         rdfs:domain :city ,
-                     :country ;
-         rdfs:range :country ,
-                    :region_origin .
-
-
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#blended_with
 :blended_with rdf:type owl:ObjectProperty ,
-                       owl:SymmetricProperty ;
+                       owl:SymmetricProperty ,
+                       owl:ReflexiveProperty ;
               rdfs:domain :beer ;
               rdfs:range :beer .
 
@@ -107,14 +99,6 @@
              rdfs:range :flavour .
 
 
-###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_ibu
-:has_ibu rdf:type owl:ObjectProperty ;
-         rdfs:subPropertyOf :has_beer_feature ;
-         rdf:type owl:FunctionalProperty ;
-         rdfs:domain :beer ;
-         rdfs:range :ibu .
-
-
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_ingredient
 :has_ingredient rdf:type owl:ObjectProperty ;
                 rdfs:domain :beer ;
@@ -135,6 +119,15 @@
            rdfs:range :style_family .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#part_of
+:part_of rdf:type owl:ObjectProperty ,
+                  owl:TransitiveProperty ;
+         rdfs:domain :city ,
+                     :country ;
+         rdfs:range :country ,
+                    :region_origin .
+
+
 #################################################################
 #    Data properties
 #################################################################
@@ -146,11 +139,11 @@
          rdfs:range xsd:float .
 
 
-###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_bitterness
-:has_bitterness rdf:type owl:DatatypeProperty ,
-                         owl:FunctionalProperty ;
-                rdfs:domain :ibu ;
-                rdfs:range xsd:nonNegativeInteger .
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_ibu
+:has_ibu rdf:type owl:DatatypeProperty ,
+                  owl:FunctionalProperty ;
+         rdfs:domain :beer ;
+         rdfs:range xsd:nonNegativeInteger .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_year
@@ -370,11 +363,6 @@
         rdfs:subClassOf :flavour .
 
 
-###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#high_ibu
-:high_ibu rdf:type owl:Class ;
-          rdfs:subClassOf :ibu .
-
-
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#high_strength
 :high_strength rdf:type owl:Class ;
                rdfs:subClassOf :abv .
@@ -400,22 +388,6 @@
        rdfs:subClassOf :flavour .
 
 
-###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#ibu
-:ibu rdf:type owl:Class ;
-     owl:equivalentClass [ rdf:type owl:Restriction ;
-                           owl:onProperty :has_bitterness ;
-                           owl:someValuesFrom [ rdf:type rdfs:Datatype ;
-                                                owl:onDatatype xsd:nonNegativeInteger ;
-                                                owl:withRestrictions ( [ xsd:minInclusive "0"^^xsd:nonNegativeInteger
-                                                                       ]
-                                                                       [ xsd:maxInclusive "120"^^xsd:nonNegativeInteger
-                                                                       ]
-                                                                     )
-                                              ]
-                         ] ;
-     rdfs:subClassOf :beer_features .
-
-
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#industry
 :industry rdf:type owl:Class ;
           rdfs:subClassOf :beer_producer .
@@ -435,11 +407,6 @@
      rdfs:subClassOf :container .
 
 
-###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#low_ibu
-:low_ibu rdf:type owl:Class ;
-         rdfs:subClassOf :ibu .
-
-
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#malt
 :malt rdf:type owl:Class ;
       rdfs:subClassOf :ingredient .
@@ -448,11 +415,6 @@
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#malty
 :malty rdf:type owl:Class ;
        rdfs:subClassOf :flavour .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#medium_ibu
-:medium_ibu rdf:type owl:Class ;
-            rdfs:subClassOf :ibu .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#other_ingredient
@@ -682,7 +644,8 @@
                             :beer ;
                    :created_by :Cantillon ;
                    :has_ingredient :Raspberry ;
-                   :has_abv "5.5"^^xsd:float .
+                   :has_abv "5.5"^^xsd:float ;
+                   :has_ibu "25"^^xsd:positiveInteger .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Sanbiki
@@ -717,14 +680,6 @@
   owl:members ( :brewery
                 :homebrewer
                 :industry
-              )
-] .
-
-
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :high_ibu
-                :low_ibu
-                :medium_ibu
               )
 ] .
 
