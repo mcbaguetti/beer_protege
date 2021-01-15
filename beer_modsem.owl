@@ -978,6 +978,7 @@
 :Rosé_de_Gambrinus rdf:type owl:NamedIndividual ,
                             :beer ;
                    :created_by :Cantillon ;
+                   :has_container :Bottle ;
                    :has_era :Traditional ;
                    :has_ingredient :Raspberry ;
                    :has_abv "5.5"^^xsd:float ;
