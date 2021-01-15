@@ -159,11 +159,6 @@
      rdfs:subClassOf :beer_features .
 
 
-###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#aged
-:aged rdf:type owl:Class ;
-      rdfs:subClassOf :fermentation .
-
-
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#amber_ale
 :amber_ale rdf:type owl:Class ;
            rdfs:subClassOf :style_family .
@@ -188,16 +183,6 @@
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#amber_lager
 :amber_lager rdf:type owl:Class ;
              rdfs:subClassOf :style_family .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#any_fermentation
-:any_fermentation rdf:type owl:Class ;
-                  owl:equivalentClass [ rdf:type owl:Class ;
-                                        owl:unionOf ( :bottom_fermented
-                                                      :top_fermented
-                                                    )
-                                      ] ;
-                  rdfs:subClassOf :fermentation .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#balanced
@@ -297,11 +282,6 @@
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#bottle
 :bottle rdf:type owl:Class ;
         rdfs:subClassOf :container .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#bottom_fermented
-:bottom_fermented rdf:type owl:Class ;
-                  rdfs:subClassOf :fermentation .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#brewery
@@ -450,6 +430,12 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#fermentation
 :fermentation rdf:type owl:Class ;
+              owl:equivalentClass [ rdf:type owl:Class ;
+                                    owl:oneOf ( :Bottom_Fermented
+                                                :Top_Fermented
+                                                :Wild_Fermented
+                                              )
+                                  ] ;
               rdfs:subClassOf :beer_features .
 
 
@@ -717,11 +703,6 @@
        rdfs:subClassOf :flavour .
 
 
-###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#top_fermented
-:top_fermented rdf:type owl:Class ;
-               rdfs:subClassOf :fermentation .
-
-
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#vegetable
 :vegetable rdf:type owl:Class ;
            rdfs:subClassOf :other_ingredient .
@@ -740,11 +721,6 @@
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#wheat_beer
 :wheat_beer rdf:type owl:Class ;
             rdfs:subClassOf :style_family .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#wild_fermented
-:wild_fermented rdf:type owl:Class ;
-                rdfs:subClassOf :fermentation .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#wood
@@ -776,6 +752,18 @@
 #################################################################
 #    Individuals
 #################################################################
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Bottom_Fermented
+:Bottom_Fermented rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Top_Fermented
+:Top_Fermented rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Wild_Fermented
+:Wild_Fermented rdf:type owl:NamedIndividual .
+
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Ca'_Del_Brado
 <http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Ca'_Del_Brado> rdf:type owl:NamedIndividual ;
