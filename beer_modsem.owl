@@ -188,9 +188,13 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#modern_beer
 :modern_beer rdf:type owl:Class ;
-             owl:equivalentClass [ rdf:type owl:Restriction ;
-                                   owl:onProperty :has_era ;
-                                   owl:hasValue :Modern
+             owl:equivalentClass [ owl:intersectionOf ( :beer
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty :has_era ;
+                                                          owl:hasValue :Modern
+                                                        ]
+                                                      ) ;
+                                   rdf:type owl:Class
                                  ] ;
              rdfs:subClassOf :beer ;
              owl:disjointWith [ owl:intersectionOf ( :historical_beer
@@ -877,6 +881,8 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Närke_Kaggen_Stormaktsporter
 :Närke_Kaggen_Stormaktsporter rdf:type owl:NamedIndividual ;
+                              :created_by :Närke_Kulturbryggeri ;
+                              :has_era :Modern ;
                               :has_abv "12.0"^^xsd:float ;
                               :has_srm "40"^^xsd:nonNegativeInteger .
 
@@ -981,6 +987,7 @@
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Sanbiki
 :Sanbiki rdf:type owl:NamedIndividual ,
                   :collab_beer ;
+         :has_era :Modern ;
          :has_ibu "45"^^xsd:nonNegativeInteger ;
          :has_srm "8"^^xsd:nonNegativeInteger ;
          :has_year "2018"^^xsd:nonNegativeInteger .
