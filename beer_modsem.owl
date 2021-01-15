@@ -644,17 +644,6 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#other_ingredient
 :other_ingredient rdf:type owl:Class ;
-                  owl:equivalentClass [ rdf:type owl:Restriction ;
-                                        owl:onProperty :has_srm ;
-                                        owl:someValuesFrom [ rdf:type rdfs:Datatype ;
-                                                             owl:onDatatype xsd:nonNegativeInteger ;
-                                                             owl:withRestrictions ( [ xsd:minInclusive "0"^^xsd:nonNegativeInteger
-                                                                                    ]
-                                                                                    [ xsd:maxInclusive "3"^^xsd:nonNegativeInteger
-                                                                                    ]
-                                                                                  )
-                                                           ]
-                                      ] ;
                   rdfs:subClassOf :ingredient .
 
 
@@ -881,7 +870,19 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Moretti
 :Moretti rdf:type owl:NamedIndividual ;
-         :created_by :Heineken_Holding .
+         :created_by :Heineken_Holding ;
+         :has_container :Bottle ,
+                        :Can .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Närke_Kaggen_Stormaktsporter
+:Närke_Kaggen_Stormaktsporter rdf:type owl:NamedIndividual ;
+                              :has_abv "12.0"^^xsd:float ;
+                              :has_srm "40"^^xsd:nonNegativeInteger .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Närke_Kulturbryggeri
+:Närke_Kulturbryggeri rdf:type owl:NamedIndividual .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Ca'_Del_Brado
