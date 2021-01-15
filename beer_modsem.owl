@@ -123,13 +123,6 @@
 #    Data properties
 #################################################################
 
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#has_srm
-:has_srm rdf:type owl:DatatypeProperty ,
-                  owl:FunctionalProperty ;
-         rdfs:domain :beer ;
-         rdfs:range xsd:positiveInteger .
-
-
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_abv
 :has_abv rdf:type owl:DatatypeProperty ,
                   owl:FunctionalProperty ;
@@ -144,6 +137,13 @@
          rdfs:range xsd:nonNegativeInteger .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_srm
+:has_srm rdf:type owl:DatatypeProperty ,
+                  owl:FunctionalProperty ;
+         rdfs:domain :beer ;
+         rdfs:range xsd:positiveInteger .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_year
 :has_year rdf:type owl:DatatypeProperty ;
           rdfs:domain :beer ;
@@ -153,223 +153,6 @@
 #################################################################
 #    Classes
 #################################################################
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#amber_colored
-:amber_colored rdf:type owl:Class ;
-               owl:equivalentClass [ rdf:type owl:Restriction ;
-                                     owl:onProperty :has_srm ;
-                                     owl:someValuesFrom [ rdf:type rdfs:Datatype ;
-                                                          owl:onDatatype xsd:nonNegativeInteger ;
-                                                          owl:withRestrictions ( [ xsd:minExclusive "6"^^xsd:nonNegativeInteger
-                                                                                 ]
-                                                                                 [ xsd:maxInclusive "9"^^xsd:nonNegativeInteger
-                                                                                 ]
-                                                                               )
-                                                        ]
-                                   ] ;
-               rdfs:subClassOf :colored_beer .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#black_colored
-:black_colored rdf:type owl:Class ;
-               owl:equivalentClass [ rdf:type owl:Restriction ;
-                                     owl:onProperty :has_srm ;
-                                     owl:someValuesFrom [ rdf:type rdfs:Datatype ;
-                                                          owl:onDatatype xsd:nonNegativeInteger ;
-                                                          owl:withRestrictions ( [ xsd:minExclusive "30"^^xsd:nonNegativeInteger
-                                                                                 ]
-                                                                                 [ xsd:maxInclusive "50"^^xsd:nonNegativeInteger
-                                                                                 ]
-                                                                               )
-                                                        ]
-                                   ] ;
-               rdfs:subClassOf :colored_beer .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#brown_colored
-:brown_colored rdf:type owl:Class ;
-               owl:equivalentClass [ rdf:type owl:Restriction ;
-                                     owl:onProperty :has_srm ;
-                                     owl:someValuesFrom [ rdf:type rdfs:Datatype ;
-                                                          owl:onDatatype xsd:nonNegativeInteger ;
-                                                          owl:withRestrictions ( [ xsd:minInclusive "19"^^xsd:nonNegativeInteger
-                                                                                 ]
-                                                                                 [ xsd:maxInclusive "22"^^xsd:nonNegativeInteger
-                                                                                 ]
-                                                                               )
-                                                        ]
-                                   ] ;
-               rdfs:subClassOf :colored_beer .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#copper_colored
-:copper_colored rdf:type owl:Class ;
-                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                      owl:onProperty :has_srm ;
-                                      owl:someValuesFrom [ rdf:type rdfs:Datatype ;
-                                                           owl:onDatatype xsd:nonNegativeInteger ;
-                                                           owl:withRestrictions ( [ xsd:minExclusive "14"^^xsd:nonNegativeInteger
-                                                                                  ]
-                                                                                  [ xsd:maxExclusive "17"^^xsd:nonNegativeInteger
-                                                                                  ]
-                                                                                )
-                                                         ]
-                                    ] ;
-                rdfs:subClassOf :colored_beer .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#dark_brown_colored
-:dark_brown_colored rdf:type owl:Class ;
-                    owl:equivalentClass [ rdf:type owl:Restriction ;
-                                          owl:onProperty :has_srm ;
-                                          owl:someValuesFrom [ rdf:type rdfs:Datatype ;
-                                                               owl:onDatatype xsd:nonNegativeInteger ;
-                                                               owl:withRestrictions ( [ xsd:minExclusive "22"^^xsd:nonNegativeInteger
-                                                                                      ]
-                                                                                      [ xsd:maxInclusive "30"^^xsd:nonNegativeInteger
-                                                                                      ]
-                                                                                    )
-                                                             ]
-                                        ] ;
-                    rdfs:subClassOf :colored_beer .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#deep_amber_colored
-:deep_amber_colored rdf:type owl:Class ;
-                    owl:equivalentClass [ rdf:type owl:Restriction ;
-                                          owl:onProperty :has_srm ;
-                                          owl:someValuesFrom [ rdf:type rdfs:Datatype ;
-                                                               owl:onDatatype xsd:nonNegativeInteger ;
-                                                               owl:withRestrictions ( [ xsd:minInclusive "10"^^xsd:nonNegativeInteger
-                                                                                      ]
-                                                                                      [ xsd:maxInclusive "14"^^xsd:nonNegativeInteger
-                                                                                      ]
-                                                                                    )
-                                                             ]
-                                        ] ;
-                    rdfs:subClassOf :colored_beer .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#deep_copper_colored
-:deep_copper_colored rdf:type owl:Class ;
-                     owl:equivalentClass [ rdf:type owl:Restriction ;
-                                           owl:onProperty :has_srm ;
-                                           owl:someValuesFrom [ rdf:type rdfs:Datatype ;
-                                                                owl:onDatatype xsd:nonNegativeInteger ;
-                                                                owl:withRestrictions ( [ xsd:minInclusive "17"^^xsd:nonNegativeInteger
-                                                                                       ]
-                                                                                       [ xsd:maxInclusive "18"^^xsd:nonNegativeInteger
-                                                                                       ]
-                                                                                     )
-                                                              ]
-                                         ] ;
-                     rdfs:subClassOf :colored_beer .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#gold_colored
-:gold_colored rdf:type owl:Class ;
-              owl:equivalentClass [ rdf:type owl:Restriction ;
-                                    owl:onProperty :has_srm ;
-                                    owl:someValuesFrom [ rdf:type rdfs:Datatype ;
-                                                         owl:onDatatype xsd:nonNegativeInteger ;
-                                                         owl:withRestrictions ( [ xsd:minInclusive "5"^^xsd:nonNegativeInteger
-                                                                                ]
-                                                                                [ xsd:maxInclusive "6"^^xsd:nonNegativeInteger
-                                                                                ]
-                                                                              )
-                                                       ]
-                                  ] ;
-              rdfs:subClassOf :colored_beer .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#high_ibu_beer
-:high_ibu_beer rdf:type owl:Class ;
-               owl:equivalentClass [ rdf:type owl:Restriction ;
-                                     owl:onProperty :has_ibu ;
-                                     owl:someValuesFrom [ rdf:type rdfs:Datatype ;
-                                                          owl:onDatatype xsd:nonNegativeInteger ;
-                                                          owl:withRestrictions ( [ xsd:minInclusive "60"^^xsd:nonNegativeInteger
-                                                                                 ]
-                                                                                 [ xsd:maxInclusive "120"^^xsd:nonNegativeInteger
-                                                                                 ]
-                                                                               )
-                                                        ]
-                                   ] ;
-               rdfs:subClassOf :ibu_beer .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#ibu_beer
-:ibu_beer rdf:type owl:Class ;
-          owl:equivalentClass [ rdf:type owl:Restriction ;
-                                owl:onProperty :has_ibu ;
-                                owl:someValuesFrom xsd:nonNegativeInteger
-                              ] ;
-          rdfs:subClassOf :beer .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#low_ibu_beer
-:low_ibu_beer rdf:type owl:Class ;
-              owl:equivalentClass [ rdf:type owl:Restriction ;
-                                    owl:onProperty :has_ibu ;
-                                    owl:someValuesFrom [ rdf:type rdfs:Datatype ;
-                                                         owl:onDatatype xsd:nonNegativeInteger ;
-                                                         owl:withRestrictions ( [ xsd:minInclusive "0"^^xsd:nonNegativeInteger
-                                                                                ]
-                                                                                [ xsd:maxExclusive "30"^^xsd:nonNegativeInteger
-                                                                                ]
-                                                                              )
-                                                       ]
-                                  ] ;
-              rdfs:subClassOf :ibu_beer .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#medium_ibu_beer
-:medium_ibu_beer rdf:type owl:Class ;
-                 owl:equivalentClass [ rdf:type owl:Restriction ;
-                                       owl:onProperty :has_ibu ;
-                                       owl:someValuesFrom [ rdf:type rdfs:Datatype ;
-                                                            owl:onDatatype xsd:nonNegativeInteger ;
-                                                            owl:withRestrictions ( [ xsd:minInclusive "30"^^xsd:nonNegativeInteger
-                                                                                   ]
-                                                                                   [ xsd:maxExclusive "60"^^xsd:nonNegativeInteger
-                                                                                   ]
-                                                                                 )
-                                                          ]
-                                     ] ;
-                 rdfs:subClassOf :ibu_beer .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#straw_colored
-:straw_colored rdf:type owl:Class ;
-               owl:equivalentClass [ rdf:type owl:Restriction ;
-                                     owl:onProperty :has_srm ;
-                                     owl:someValuesFrom [ rdf:type rdfs:Datatype ;
-                                                          owl:onDatatype xsd:nonNegativeInteger ;
-                                                          owl:withRestrictions ( [ xsd:minInclusive "0"^^xsd:nonNegativeInteger
-                                                                                 ]
-                                                                                 [ xsd:maxExclusive "3"^^xsd:nonNegativeInteger
-                                                                                 ]
-                                                                               )
-                                                        ]
-                                   ] ;
-               rdfs:subClassOf :colored_beer .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#yellow_colored
-:yellow_colored rdf:type owl:Class ;
-                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                      owl:onProperty :has_srm ;
-                                      owl:someValuesFrom [ rdf:type rdfs:Datatype ;
-                                                           owl:onDatatype xsd:nonNegativeInteger ;
-                                                           owl:withRestrictions ( [ xsd:minInclusive "3"^^xsd:nonNegativeInteger
-                                                                                  ]
-                                                                                  [ xsd:maxInclusive "4"^^xsd:nonNegativeInteger
-                                                                                  ]
-                                                                                )
-                                                         ]
-                                    ] ;
-                rdfs:subClassOf :colored_beer .
-
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#abv
 :abv rdf:type owl:Class ;
@@ -384,6 +167,22 @@
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#amber_ale
 :amber_ale rdf:type owl:Class ;
            rdfs:subClassOf :style_family .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#amber_colored
+:amber_colored rdf:type owl:Class ;
+               owl:equivalentClass [ rdf:type owl:Restriction ;
+                                     owl:onProperty :has_srm ;
+                                     owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                          owl:onDatatype xsd:nonNegativeInteger ;
+                                                          owl:withRestrictions ( [ xsd:minExclusive "6"^^xsd:nonNegativeInteger
+                                                                                 ]
+                                                                                 [ xsd:maxInclusive "9"^^xsd:nonNegativeInteger
+                                                                                 ]
+                                                                               )
+                                                        ]
+                                   ] ;
+               rdfs:subClassOf :colored_beer .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#amber_lager
@@ -464,6 +263,22 @@
         rdfs:subClassOf :flavour .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#black_colored
+:black_colored rdf:type owl:Class ;
+               owl:equivalentClass [ rdf:type owl:Restriction ;
+                                     owl:onProperty :has_srm ;
+                                     owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                          owl:onDatatype xsd:nonNegativeInteger ;
+                                                          owl:withRestrictions ( [ xsd:minExclusive "30"^^xsd:nonNegativeInteger
+                                                                                 ]
+                                                                                 [ xsd:maxInclusive "50"^^xsd:nonNegativeInteger
+                                                                                 ]
+                                                                               )
+                                                        ]
+                                   ] ;
+               rdfs:subClassOf :colored_beer .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#blended_beer
 :blended_beer rdf:type owl:Class ;
               owl:equivalentClass [ rdf:type owl:Restriction ;
@@ -499,6 +314,22 @@
            rdfs:subClassOf :style_family .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#brown_colored
+:brown_colored rdf:type owl:Class ;
+               owl:equivalentClass [ rdf:type owl:Restriction ;
+                                     owl:onProperty :has_srm ;
+                                     owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                          owl:onDatatype xsd:nonNegativeInteger ;
+                                                          owl:withRestrictions ( [ xsd:minInclusive "19"^^xsd:nonNegativeInteger
+                                                                                 ]
+                                                                                 [ xsd:maxInclusive "22"^^xsd:nonNegativeInteger
+                                                                                 ]
+                                                                               )
+                                                        ]
+                                   ] ;
+               rdfs:subClassOf :colored_beer .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#can
 :can rdf:type owl:Class ;
      rdfs:subClassOf :container .
@@ -532,14 +363,78 @@
 :container rdf:type owl:Class .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#copper_colored
+:copper_colored rdf:type owl:Class ;
+                owl:equivalentClass [ rdf:type owl:Restriction ;
+                                      owl:onProperty :has_srm ;
+                                      owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                           owl:onDatatype xsd:nonNegativeInteger ;
+                                                           owl:withRestrictions ( [ xsd:minExclusive "14"^^xsd:nonNegativeInteger
+                                                                                  ]
+                                                                                  [ xsd:maxExclusive "17"^^xsd:nonNegativeInteger
+                                                                                  ]
+                                                                                )
+                                                         ]
+                                    ] ;
+                rdfs:subClassOf :colored_beer .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#country
 :country rdf:type owl:Class ;
          rdfs:subClassOf :region_origin .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#dark_brown_colored
+:dark_brown_colored rdf:type owl:Class ;
+                    owl:equivalentClass [ rdf:type owl:Restriction ;
+                                          owl:onProperty :has_srm ;
+                                          owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                               owl:onDatatype xsd:nonNegativeInteger ;
+                                                               owl:withRestrictions ( [ xsd:minExclusive "22"^^xsd:nonNegativeInteger
+                                                                                      ]
+                                                                                      [ xsd:maxInclusive "30"^^xsd:nonNegativeInteger
+                                                                                      ]
+                                                                                    )
+                                                             ]
+                                        ] ;
+                    rdfs:subClassOf :colored_beer .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#dark_lager
 :dark_lager rdf:type owl:Class ;
             rdfs:subClassOf :style_family .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#deep_amber_colored
+:deep_amber_colored rdf:type owl:Class ;
+                    owl:equivalentClass [ rdf:type owl:Restriction ;
+                                          owl:onProperty :has_srm ;
+                                          owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                               owl:onDatatype xsd:nonNegativeInteger ;
+                                                               owl:withRestrictions ( [ xsd:minInclusive "10"^^xsd:nonNegativeInteger
+                                                                                      ]
+                                                                                      [ xsd:maxInclusive "14"^^xsd:nonNegativeInteger
+                                                                                      ]
+                                                                                    )
+                                                             ]
+                                        ] ;
+                    rdfs:subClassOf :colored_beer .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#deep_copper_colored
+:deep_copper_colored rdf:type owl:Class ;
+                     owl:equivalentClass [ rdf:type owl:Restriction ;
+                                           owl:onProperty :has_srm ;
+                                           owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                owl:onDatatype xsd:nonNegativeInteger ;
+                                                                owl:withRestrictions ( [ xsd:minInclusive "17"^^xsd:nonNegativeInteger
+                                                                                       ]
+                                                                                       [ xsd:maxInclusive "18"^^xsd:nonNegativeInteger
+                                                                                       ]
+                                                                                     )
+                                                              ]
+                                         ] ;
+                     rdfs:subClassOf :colored_beer .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#era
@@ -573,6 +468,38 @@
         rdfs:subClassOf :flavour .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#gold_colored
+:gold_colored rdf:type owl:Class ;
+              owl:equivalentClass [ rdf:type owl:Restriction ;
+                                    owl:onProperty :has_srm ;
+                                    owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                         owl:onDatatype xsd:nonNegativeInteger ;
+                                                         owl:withRestrictions ( [ xsd:minInclusive "5"^^xsd:nonNegativeInteger
+                                                                                ]
+                                                                                [ xsd:maxInclusive "6"^^xsd:nonNegativeInteger
+                                                                                ]
+                                                                              )
+                                                       ]
+                                  ] ;
+              rdfs:subClassOf :colored_beer .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#high_ibu_beer
+:high_ibu_beer rdf:type owl:Class ;
+               owl:equivalentClass [ rdf:type owl:Restriction ;
+                                     owl:onProperty :has_ibu ;
+                                     owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                          owl:onDatatype xsd:nonNegativeInteger ;
+                                                          owl:withRestrictions ( [ xsd:minInclusive "60"^^xsd:nonNegativeInteger
+                                                                                 ]
+                                                                                 [ xsd:maxInclusive "120"^^xsd:nonNegativeInteger
+                                                                                 ]
+                                                                               )
+                                                        ]
+                                   ] ;
+               rdfs:subClassOf :ibu_beer .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#high_strength
 :high_strength rdf:type owl:Class ;
                rdfs:subClassOf :abv .
@@ -591,6 +518,15 @@
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#hoppy
 :hoppy rdf:type owl:Class ;
        rdfs:subClassOf :flavour .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#ibu_beer
+:ibu_beer rdf:type owl:Class ;
+          owl:equivalentClass [ rdf:type owl:Restriction ;
+                                owl:onProperty :has_ibu ;
+                                owl:someValuesFrom xsd:nonNegativeInteger
+                              ] ;
+          rdfs:subClassOf :beer .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#industry
@@ -612,6 +548,22 @@
      rdfs:subClassOf :container .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#low_ibu_beer
+:low_ibu_beer rdf:type owl:Class ;
+              owl:equivalentClass [ rdf:type owl:Restriction ;
+                                    owl:onProperty :has_ibu ;
+                                    owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                         owl:onDatatype xsd:nonNegativeInteger ;
+                                                         owl:withRestrictions ( [ xsd:minInclusive "0"^^xsd:nonNegativeInteger
+                                                                                ]
+                                                                                [ xsd:maxExclusive "30"^^xsd:nonNegativeInteger
+                                                                                ]
+                                                                              )
+                                                       ]
+                                  ] ;
+              rdfs:subClassOf :ibu_beer .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#malt
 :malt rdf:type owl:Class ;
       rdfs:subClassOf :ingredient .
@@ -620,6 +572,22 @@
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#malty
 :malty rdf:type owl:Class ;
        rdfs:subClassOf :flavour .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#medium_ibu_beer
+:medium_ibu_beer rdf:type owl:Class ;
+                 owl:equivalentClass [ rdf:type owl:Restriction ;
+                                       owl:onProperty :has_ibu ;
+                                       owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                            owl:onDatatype xsd:nonNegativeInteger ;
+                                                            owl:withRestrictions ( [ xsd:minInclusive "30"^^xsd:nonNegativeInteger
+                                                                                   ]
+                                                                                   [ xsd:maxExclusive "60"^^xsd:nonNegativeInteger
+                                                                                   ]
+                                                                                 )
+                                                          ]
+                                     ] ;
+                 rdfs:subClassOf :ibu_beer .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#other_ingredient
@@ -718,6 +686,22 @@
        rdfs:subClassOf :style_family .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#straw_colored
+:straw_colored rdf:type owl:Class ;
+               owl:equivalentClass [ rdf:type owl:Restriction ;
+                                     owl:onProperty :has_srm ;
+                                     owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                          owl:onDatatype xsd:nonNegativeInteger ;
+                                                          owl:withRestrictions ( [ xsd:minInclusive "0"^^xsd:nonNegativeInteger
+                                                                                 ]
+                                                                                 [ xsd:maxExclusive "3"^^xsd:nonNegativeInteger
+                                                                                 ]
+                                                                               )
+                                                        ]
+                                   ] ;
+               rdfs:subClassOf :colored_beer .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#strong_ale
 :strong_ale rdf:type owl:Class ;
             rdfs:subClassOf :style_family .
@@ -773,23 +757,25 @@
        rdfs:subClassOf :ingredient .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#yellow_colored
+:yellow_colored rdf:type owl:Class ;
+                owl:equivalentClass [ rdf:type owl:Restriction ;
+                                      owl:onProperty :has_srm ;
+                                      owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                           owl:onDatatype xsd:nonNegativeInteger ;
+                                                           owl:withRestrictions ( [ xsd:minInclusive "3"^^xsd:nonNegativeInteger
+                                                                                  ]
+                                                                                  [ xsd:maxInclusive "4"^^xsd:nonNegativeInteger
+                                                                                  ]
+                                                                                )
+                                                         ]
+                                    ] ;
+                rdfs:subClassOf :colored_beer .
+
+
 #################################################################
 #    Individuals
 #################################################################
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Craft
-:Craft rdf:type owl:NamedIndividual .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Historical
-:Historical rdf:type owl:NamedIndividual ,
-                     :era .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Traditional
-:Traditional rdf:type owl:NamedIndividual ,
-                      :era .
-
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Ca'_Del_Brado
 <http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Ca'_Del_Brado> rdf:type owl:NamedIndividual ;
@@ -809,6 +795,15 @@
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Caramelized_malt
 :Caramelized_malt rdf:type owl:NamedIndividual ,
                            :special_malts .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Craft
+:Craft rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Historical
+:Historical rdf:type owl:NamedIndividual ,
+                     :era .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#LoverBeer
@@ -863,6 +858,7 @@
 :Rosé_de_Gambrinus rdf:type owl:NamedIndividual ,
                             :beer ;
                    :created_by :Cantillon ;
+                   :has_era :Traditional ;
                    :has_ingredient :Raspberry ;
                    :has_abv "5.5"^^xsd:float ;
                    :has_ibu "25"^^xsd:positiveInteger .
@@ -871,14 +867,19 @@
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Sanbiki
 :Sanbiki rdf:type owl:NamedIndividual ,
                   :collab_beer ;
-         :has_srm "8"^^xsd:nonNegativeInteger ;
          :has_ibu "45"^^xsd:nonNegativeInteger ;
+         :has_srm "8"^^xsd:nonNegativeInteger ;
          :has_year "2018"^^xsd:nonNegativeInteger .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Smoked_malt
 :Smoked_malt rdf:type owl:NamedIndividual ,
                       :base_malts .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Traditional
+:Traditional rdf:type owl:NamedIndividual ,
+                      :era .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Vienna_malt
