@@ -165,7 +165,16 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#historical_beer
 :historical_beer rdf:type owl:Class ;
-                 rdfs:subClassOf :beer .
+                 owl:equivalentClass [ rdf:type owl:Restriction ;
+                                       owl:onProperty :has_era ;
+                                       owl:hasValue :Historical
+                                     ] ;
+                 rdfs:subClassOf :beer ;
+                 owl:disjointWith [ owl:intersectionOf ( :modern_beer
+                                                         :traditional_beer
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#industrial_beer
@@ -175,6 +184,34 @@
                                        owl:someValuesFrom :industry
                                      ] ;
                  rdfs:subClassOf :beer .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#modern_beer
+:modern_beer rdf:type owl:Class ;
+             owl:equivalentClass [ rdf:type owl:Restriction ;
+                                   owl:onProperty :has_era ;
+                                   owl:hasValue :Modern
+                                 ] ;
+             rdfs:subClassOf :beer ;
+             owl:disjointWith [ owl:intersectionOf ( :historical_beer
+                                                     :traditional_beer
+                                                   ) ;
+                                rdf:type owl:Class
+                              ] .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#traditional_beer
+:traditional_beer rdf:type owl:Class ;
+                  owl:equivalentClass [ rdf:type owl:Restriction ;
+                                        owl:onProperty :has_era ;
+                                        owl:hasValue :Traditional
+                                      ] ;
+                  rdfs:subClassOf :beer ;
+                  owl:disjointWith [ owl:intersectionOf ( :historical_beer
+                                                          :modern_beer
+                                                        ) ;
+                                     rdf:type owl:Class
+                                   ] .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#abv_beer
@@ -443,8 +480,8 @@
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#era
 :era rdf:type owl:Class ;
      owl:equivalentClass [ rdf:type owl:Class ;
-                           owl:oneOf ( :Craft
-                                       :Historical
+                           owl:oneOf ( :Historical
+                                       :Modern
                                        :Traditional
                                      )
                          ] ;
@@ -873,10 +910,6 @@
                            :special_malts .
 
 
-###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Craft
-:Craft rdf:type owl:NamedIndividual .
-
-
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Historical
 :Historical rdf:type owl:NamedIndividual ,
                      :era .
@@ -886,6 +919,10 @@
 :LoverBeer rdf:type owl:NamedIndividual ,
                     :brewery ;
            :creates :Sanbiki .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Modern
+:Modern rdf:type owl:NamedIndividual .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Moor_Beer_Company
