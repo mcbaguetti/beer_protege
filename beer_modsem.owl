@@ -146,8 +146,43 @@
 #    Classes
 #################################################################
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#craft_beer
+:craft_beer rdf:type owl:Class ;
+            owl:equivalentClass [ rdf:type owl:Class ;
+                                  owl:unionOf ( [ rdf:type owl:Restriction ;
+                                                  owl:onProperty :created_by ;
+                                                  owl:someValuesFrom :brewery
+                                                ]
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty :created_by ;
+                                                  owl:someValuesFrom :homebrewer
+                                                ]
+                                              )
+                                ] ;
+            rdfs:subClassOf :beer ;
+            owl:disjointWith :industrial_beer .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#historical_beer
+:historical_beer rdf:type owl:Class ;
+                 rdfs:subClassOf :beer .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#industrial_beer
+:industrial_beer rdf:type owl:Class ;
+                 owl:equivalentClass [ rdf:type owl:Restriction ;
+                                       owl:onProperty :created_by ;
+                                       owl:someValuesFrom :industry
+                                     ] ;
+                 rdfs:subClassOf :beer .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#abv_beer
 :abv_beer rdf:type owl:Class ;
+          owl:equivalentClass [ rdf:type owl:Restriction ;
+                                owl:onProperty :has_abv ;
+                                owl:someValuesFrom xsd:float
+                              ] ;
           rdfs:subClassOf :beer .
 
 
@@ -474,20 +509,20 @@
                rdfs:subClassOf :ibu_beer .
 
 
-###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#high_strength
-:high_strength rdf:type owl:Class ;
-               owl:equivalentClass [ rdf:type owl:Restriction ;
-                                     owl:onProperty :has_abv ;
-                                     owl:someValuesFrom [ rdf:type rdfs:Datatype ;
-                                                          owl:onDatatype xsd:float ;
-                                                          owl:withRestrictions ( [ xsd:minInclusive "6.0"^^xsd:float
-                                                                                 ]
-                                                                                 [ xsd:maxExclusive "9.0"^^xsd:float
-                                                                                 ]
-                                                                               )
-                                                        ]
-                                   ] ;
-               rdfs:subClassOf :abv_beer .
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#high_strength_beer
+:high_strength_beer rdf:type owl:Class ;
+                    owl:equivalentClass [ rdf:type owl:Restriction ;
+                                          owl:onProperty :has_abv ;
+                                          owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                               owl:onDatatype xsd:float ;
+                                                               owl:withRestrictions ( [ xsd:minInclusive "6.0"^^xsd:float
+                                                                                      ]
+                                                                                      [ xsd:maxExclusive "9.0"^^xsd:float
+                                                                                      ]
+                                                                                    )
+                                                             ]
+                                        ] ;
+                    rdfs:subClassOf :abv_beer .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#homebrewer
@@ -615,20 +650,20 @@
         rdfs:subClassOf :flavour .
 
 
-###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#session_strength
-:session_strength rdf:type owl:Class ;
-                  owl:equivalentClass [ rdf:type owl:Restriction ;
-                                        owl:onProperty :has_abv ;
-                                        owl:someValuesFrom [ rdf:type rdfs:Datatype ;
-                                                             owl:onDatatype xsd:float ;
-                                                             owl:withRestrictions ( [ xsd:minInclusive "0.0"^^xsd:float
-                                                                                    ]
-                                                                                    [ xsd:maxExclusive "4.0"^^xsd:float
-                                                                                    ]
-                                                                                  )
-                                                           ]
-                                      ] ;
-                  rdfs:subClassOf :abv_beer .
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#session_strength_beer
+:session_strength_beer rdf:type owl:Class ;
+                       owl:equivalentClass [ rdf:type owl:Restriction ;
+                                             owl:onProperty :has_abv ;
+                                             owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                  owl:onDatatype xsd:float ;
+                                                                  owl:withRestrictions ( [ xsd:minInclusive "0.0"^^xsd:float
+                                                                                         ]
+                                                                                         [ xsd:maxExclusive "4.0"^^xsd:float
+                                                                                         ]
+                                                                                       )
+                                                                ]
+                                           ] ;
+                       rdfs:subClassOf :abv_beer .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#smoke
@@ -667,20 +702,20 @@
        rdfs:subClassOf :flavour .
 
 
-###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#standard_strength
-:standard_strength rdf:type owl:Class ;
-                   owl:equivalentClass [ rdf:type owl:Restriction ;
-                                         owl:onProperty :has_abv ;
-                                         owl:someValuesFrom [ rdf:type rdfs:Datatype ;
-                                                              owl:onDatatype xsd:float ;
-                                                              owl:withRestrictions ( [ xsd:minInclusive "4.0"^^xsd:float
-                                                                                     ]
-                                                                                     [ xsd:maxExclusive "6.0"^^xsd:float
-                                                                                     ]
-                                                                                   )
-                                                            ]
-                                       ] ;
-                   rdfs:subClassOf :abv_beer .
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#standard_strength_beer
+:standard_strength_beer rdf:type owl:Class ;
+                        owl:equivalentClass [ rdf:type owl:Restriction ;
+                                              owl:onProperty :has_abv ;
+                                              owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                   owl:onDatatype xsd:float ;
+                                                                   owl:withRestrictions ( [ xsd:minInclusive "4.0"^^xsd:float
+                                                                                          ]
+                                                                                          [ xsd:maxExclusive "6.0"^^xsd:float
+                                                                                          ]
+                                                                                        )
+                                                                 ]
+                                            ] ;
+                        rdfs:subClassOf :abv_beer .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#stout
@@ -724,20 +759,20 @@
            rdfs:subClassOf :other_ingredient .
 
 
-###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#very_high_strength
-:very_high_strength rdf:type owl:Class ;
-                    owl:equivalentClass [ rdf:type owl:Restriction ;
-                                          owl:onProperty :has_abv ;
-                                          owl:someValuesFrom [ rdf:type rdfs:Datatype ;
-                                                               owl:onDatatype xsd:float ;
-                                                               owl:withRestrictions ( [ xsd:minInclusive "9.0"^^xsd:float
-                                                                                      ]
-                                                                                      [ xsd:maxExclusive "18.0"^^xsd:float
-                                                                                      ]
-                                                                                    )
-                                                             ]
-                                        ] ;
-                    rdfs:subClassOf :abv_beer .
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#very_high_strength_beer
+:very_high_strength_beer rdf:type owl:Class ;
+                         owl:equivalentClass [ rdf:type owl:Restriction ;
+                                               owl:onProperty :has_abv ;
+                                               owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                    owl:onDatatype xsd:float ;
+                                                                    owl:withRestrictions ( [ xsd:minInclusive "9.0"^^xsd:float
+                                                                                           ]
+                                                                                           [ xsd:maxExclusive "18.0"^^xsd:float
+                                                                                           ]
+                                                                                         )
+                                                                  ]
+                                             ] ;
+                         rdfs:subClassOf :abv_beer .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#water
@@ -788,8 +823,28 @@
 :Can rdf:type owl:NamedIndividual .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Heineken
+:Heineken rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Heineken_Holding
+:Heineken_Holding rdf:type owl:NamedIndividual ,
+                           :industry ;
+                  :creates :Heineken .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Ichnusa
+:Ichnusa rdf:type owl:NamedIndividual ;
+         :created_by :Heineken_Holding .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Keg
 :Keg rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Moretti
+:Moretti rdf:type owl:NamedIndividual ;
+         :created_by :Heineken_Holding .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Ca'_Del_Brado
@@ -799,6 +854,7 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Fou'Foune
 <http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Fou'Foune> rdf:type owl:NamedIndividual ;
+                                                                         :has_fermentation :Wild_Fermented ;
                                                                          :has_abv "6.0"^^xsd:float .
 
 
