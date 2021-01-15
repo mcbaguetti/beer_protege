@@ -32,14 +32,6 @@
          rdfs:range :beer .
 
 
-###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_alcohol
-:has_alcohol rdf:type owl:ObjectProperty ;
-             rdfs:subPropertyOf :has_beer_feature ;
-             rdf:type owl:FunctionalProperty ;
-             rdfs:domain :beer ;
-             rdfs:range :abv .
-
-
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_beer_feature
 :has_beer_feature rdf:type owl:ObjectProperty ;
                   rdfs:domain :beer ;
@@ -154,9 +146,9 @@
 #    Classes
 #################################################################
 
-###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#abv
-:abv rdf:type owl:Class ;
-     rdfs:subClassOf :beer_features .
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#abv_beer
+:abv_beer rdf:type owl:Class ;
+          rdfs:subClassOf :beer .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#amber_ale
@@ -279,11 +271,6 @@
       rdfs:subClassOf :style_family .
 
 
-###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#bottle
-:bottle rdf:type owl:Class ;
-        rdfs:subClassOf :container .
-
-
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#brewery
 :brewery rdf:type owl:Class ;
          rdfs:subClassOf :beer_producer .
@@ -308,11 +295,6 @@
                                                         ]
                                    ] ;
                rdfs:subClassOf :colored_beer .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#can
-:can rdf:type owl:Class ;
-     rdfs:subClassOf :container .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#city
@@ -340,7 +322,13 @@
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#container
-:container rdf:type owl:Class .
+:container rdf:type owl:Class ;
+           owl:equivalentClass [ rdf:type owl:Class ;
+                                 owl:oneOf ( :Bottle
+                                             :Can
+                                             :Keg
+                                           )
+                               ] .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#copper_colored
@@ -488,7 +476,18 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#high_strength
 :high_strength rdf:type owl:Class ;
-               rdfs:subClassOf :abv .
+               owl:equivalentClass [ rdf:type owl:Restriction ;
+                                     owl:onProperty :has_abv ;
+                                     owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                          owl:onDatatype xsd:float ;
+                                                          owl:withRestrictions ( [ xsd:minInclusive "6.0"^^xsd:float
+                                                                                 ]
+                                                                                 [ xsd:maxExclusive "9.0"^^xsd:float
+                                                                                 ]
+                                                                               )
+                                                        ]
+                                   ] ;
+               rdfs:subClassOf :abv_beer .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#homebrewer
@@ -527,11 +526,6 @@
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#ipa
 :ipa rdf:type owl:Class ;
      rdfs:subClassOf :style_family .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#keg
-:keg rdf:type owl:Class ;
-     rdfs:subClassOf :container .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#low_ibu_beer
@@ -623,7 +617,18 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#session_strength
 :session_strength rdf:type owl:Class ;
-                  rdfs:subClassOf :abv .
+                  owl:equivalentClass [ rdf:type owl:Restriction ;
+                                        owl:onProperty :has_abv ;
+                                        owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                             owl:onDatatype xsd:float ;
+                                                             owl:withRestrictions ( [ xsd:minInclusive "0.0"^^xsd:float
+                                                                                    ]
+                                                                                    [ xsd:maxExclusive "4.0"^^xsd:float
+                                                                                    ]
+                                                                                  )
+                                                           ]
+                                      ] ;
+                  rdfs:subClassOf :abv_beer .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#smoke
@@ -664,7 +669,18 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#standard_strength
 :standard_strength rdf:type owl:Class ;
-                   rdfs:subClassOf :abv .
+                   owl:equivalentClass [ rdf:type owl:Restriction ;
+                                         owl:onProperty :has_abv ;
+                                         owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                              owl:onDatatype xsd:float ;
+                                                              owl:withRestrictions ( [ xsd:minInclusive "4.0"^^xsd:float
+                                                                                     ]
+                                                                                     [ xsd:maxExclusive "6.0"^^xsd:float
+                                                                                     ]
+                                                                                   )
+                                                            ]
+                                       ] ;
+                   rdfs:subClassOf :abv_beer .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#stout
@@ -710,7 +726,18 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#very_high_strength
 :very_high_strength rdf:type owl:Class ;
-                    rdfs:subClassOf :abv .
+                    owl:equivalentClass [ rdf:type owl:Restriction ;
+                                          owl:onProperty :has_abv ;
+                                          owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                               owl:onDatatype xsd:float ;
+                                                               owl:withRestrictions ( [ xsd:minInclusive "9.0"^^xsd:float
+                                                                                      ]
+                                                                                      [ xsd:maxExclusive "18.0"^^xsd:float
+                                                                                      ]
+                                                                                    )
+                                                             ]
+                                        ] ;
+                    rdfs:subClassOf :abv_beer .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#water
@@ -753,16 +780,16 @@
 #    Individuals
 #################################################################
 
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Bottom_Fermented
-:Bottom_Fermented rdf:type owl:NamedIndividual .
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Bottle
+:Bottle rdf:type owl:NamedIndividual .
 
 
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Top_Fermented
-:Top_Fermented rdf:type owl:NamedIndividual .
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Can
+:Can rdf:type owl:NamedIndividual .
 
 
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Wild_Fermented
-:Wild_Fermented rdf:type owl:NamedIndividual .
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Keg
+:Keg rdf:type owl:NamedIndividual .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Ca'_Del_Brado
@@ -771,7 +798,12 @@
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Fou'Foune
-<http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Fou'Foune> rdf:type owl:NamedIndividual .
+<http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Fou'Foune> rdf:type owl:NamedIndividual ;
+                                                                         :has_abv "6.0"^^xsd:float .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Bottom_Fermented
+:Bottom_Fermented rdf:type owl:NamedIndividual .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Cantillon
@@ -865,6 +897,10 @@
                       :base_malts .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Top_Fermented
+:Top_Fermented rdf:type owl:NamedIndividual .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Traditional
 :Traditional rdf:type owl:NamedIndividual ,
                       :era .
@@ -875,17 +911,13 @@
                       :base_malts .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Wild_Fermented
+:Wild_Fermented rdf:type owl:NamedIndividual .
+
+
 #################################################################
 #    General axioms
 #################################################################
-
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :bottle
-                :can
-                :keg
-              )
-] .
-
 
 [ rdf:type owl:AllDisjointClasses ;
   owl:members ( :brewery
