@@ -13,6 +13,18 @@
 #    Object Properties
 #################################################################
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#located_in
+:located_in rdf:type owl:ObjectProperty ,
+                     owl:TransitiveProperty ;
+            rdfs:range :region ;
+            owl:propertyChainAxiom ( :created_by
+                                     :located_in
+                                   ) ,
+                                   ( :creates
+                                     :located_in
+                                   ) .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#blended_with
 :blended_with rdf:type owl:ObjectProperty ,
                        owl:SymmetricProperty ;
@@ -38,24 +50,10 @@
                   rdfs:range :beer_features .
 
 
-###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_city
-:has_city rdf:type owl:ObjectProperty ;
-          rdfs:subPropertyOf :has_origin ;
-          rdfs:domain :beer ;
-          rdfs:range :city .
-
-
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_container
 :has_container rdf:type owl:ObjectProperty ;
                rdfs:domain :beer ;
                rdfs:range :container .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_country
-:has_country rdf:type owl:ObjectProperty ;
-             rdfs:subPropertyOf :has_origin ;
-             rdfs:domain :beer ;
-             rdfs:range :country .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_era
@@ -88,27 +86,12 @@
                 rdfs:range :ingredient .
 
 
-###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_origin
-:has_origin rdf:type owl:ObjectProperty ;
-            rdfs:domain :beer ;
-            rdfs:range :region_origin .
-
-
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_style
 :has_style rdf:type owl:ObjectProperty ;
            rdfs:subPropertyOf :has_beer_feature ;
            rdf:type owl:FunctionalProperty ;
            rdfs:domain :beer ;
            rdfs:range :style_family .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#part_of
-:part_of rdf:type owl:ObjectProperty ,
-                  owl:TransitiveProperty ;
-         rdfs:domain :city ,
-                     :country ;
-         rdfs:range :country ,
-                    :region_origin .
 
 
 #################################################################
@@ -146,76 +129,80 @@
 #    Classes
 #################################################################
 
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#craft_beer
-:craft_beer rdf:type owl:Class ;
-            owl:equivalentClass [ rdf:type owl:Class ;
-                                  owl:unionOf ( [ rdf:type owl:Restriction ;
-                                                  owl:onProperty :created_by ;
-                                                  owl:someValuesFrom :brewery
-                                                ]
-                                                [ rdf:type owl:Restriction ;
-                                                  owl:onProperty :created_by ;
-                                                  owl:someValuesFrom :homebrewer
-                                                ]
-                                              )
-                                ] ;
-            rdfs:subClassOf :beer ;
-            owl:disjointWith :industrial_beer .
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#belgian_beer
+:belgian_beer rdf:type owl:Class ;
+              owl:equivalentClass [ rdf:type owl:Class ;
+                                    owl:unionOf ( [ owl:intersectionOf ( :beer
+                                                                         [ rdf:type owl:Restriction ;
+                                                                           owl:onProperty :located_in ;
+                                                                           owl:hasValue :Belgium
+                                                                         ]
+                                                                       ) ;
+                                                    rdf:type owl:Class
+                                                  ]
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty :created_by ;
+                                                    owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                    owl:onClass :belgian_brewery
+                                                  ]
+                                                )
+                                  ] ;
+              rdfs:subClassOf :beer .
 
 
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#historical_beer
-:historical_beer rdf:type owl:Class ;
-                 owl:equivalentClass [ rdf:type owl:Restriction ;
-                                       owl:onProperty :has_era ;
-                                       owl:hasValue :Historical
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#belgian_brewery
+:belgian_brewery rdf:type owl:Class ;
+                 owl:equivalentClass [ owl:intersectionOf ( :brewery
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty :located_in ;
+                                                              owl:hasValue :Belgium
+                                                            ]
+                                                          ) ;
+                                       rdf:type owl:Class
                                      ] ;
-                 rdfs:subClassOf :beer ;
-                 owl:disjointWith [ owl:intersectionOf ( :modern_beer
-                                                         :traditional_beer
-                                                       ) ;
-                                    rdf:type owl:Class
-                                  ] .
+                 rdfs:subClassOf :brewery .
 
 
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#industrial_beer
-:industrial_beer rdf:type owl:Class ;
-                 owl:equivalentClass [ rdf:type owl:Restriction ;
-                                       owl:onProperty :created_by ;
-                                       owl:someValuesFrom :industry
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#italian_beer
+:italian_beer rdf:type owl:Class ;
+              owl:equivalentClass [ rdf:type owl:Class ;
+                                    owl:unionOf ( [ owl:intersectionOf ( :beer
+                                                                         [ rdf:type owl:Restriction ;
+                                                                           owl:onProperty :located_in ;
+                                                                           owl:hasValue :Italy
+                                                                         ]
+                                                                       ) ;
+                                                    rdf:type owl:Class
+                                                  ]
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty :created_by ;
+                                                    owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                    owl:onClass :italian_brewery
+                                                  ]
+                                                )
+                                  ] ;
+              rdfs:subClassOf :beer .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#italian_brewery
+:italian_brewery rdf:type owl:Class ;
+                 owl:equivalentClass [ rdf:type owl:Class ;
+                                       owl:unionOf ( [ owl:intersectionOf ( :brewery
+                                                                            [ rdf:type owl:Restriction ;
+                                                                              owl:onProperty :located_in ;
+                                                                              owl:hasValue :Italy
+                                                                            ]
+                                                                          ) ;
+                                                       rdf:type owl:Class
+                                                     ]
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty :creates ;
+                                                       owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                       owl:onClass :italian_beer
+                                                     ]
+                                                   )
                                      ] ;
-                 rdfs:subClassOf :beer .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#modern_beer
-:modern_beer rdf:type owl:Class ;
-             owl:equivalentClass [ owl:intersectionOf ( :beer
-                                                        [ rdf:type owl:Restriction ;
-                                                          owl:onProperty :has_era ;
-                                                          owl:hasValue :Modern
-                                                        ]
-                                                      ) ;
-                                   rdf:type owl:Class
-                                 ] ;
-             rdfs:subClassOf :beer ;
-             owl:disjointWith [ owl:intersectionOf ( :historical_beer
-                                                     :traditional_beer
-                                                   ) ;
-                                rdf:type owl:Class
-                              ] .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#traditional_beer
-:traditional_beer rdf:type owl:Class ;
-                  owl:equivalentClass [ rdf:type owl:Restriction ;
-                                        owl:onProperty :has_era ;
-                                        owl:hasValue :Traditional
-                                      ] ;
-                  rdfs:subClassOf :beer ;
-                  owl:disjointWith [ owl:intersectionOf ( :historical_beer
-                                                          :modern_beer
-                                                        ) ;
-                                     rdf:type owl:Class
-                                   ] .
+                 rdfs:subClassOf :brewery .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#abv_beer
@@ -373,11 +360,6 @@
                rdfs:subClassOf :colored_beer .
 
 
-###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#city
-:city rdf:type owl:Class ;
-      rdfs:subClassOf :region_origin .
-
-
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#collab_beer
 :collab_beer rdf:type owl:Class ;
              owl:equivalentClass [ rdf:type owl:Restriction ;
@@ -423,9 +405,21 @@
                 rdfs:subClassOf :colored_beer .
 
 
-###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#country
-:country rdf:type owl:Class ;
-         rdfs:subClassOf :region_origin .
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#craft_beer
+:craft_beer rdf:type owl:Class ;
+            owl:equivalentClass [ rdf:type owl:Class ;
+                                  owl:unionOf ( [ rdf:type owl:Restriction ;
+                                                  owl:onProperty :created_by ;
+                                                  owl:someValuesFrom :brewery
+                                                ]
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty :created_by ;
+                                                  owl:someValuesFrom :homebrewer
+                                                ]
+                                              )
+                                ] ;
+            rdfs:subClassOf :beer ;
+            owl:disjointWith :industrial_beer .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#dark_brown_colored
@@ -566,6 +560,20 @@
                     rdfs:subClassOf :abv_beer .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#historical_beer
+:historical_beer rdf:type owl:Class ;
+                 owl:equivalentClass [ rdf:type owl:Restriction ;
+                                       owl:onProperty :has_era ;
+                                       owl:hasValue :Historical
+                                     ] ;
+                 rdfs:subClassOf :beer ;
+                 owl:disjointWith [ owl:intersectionOf ( :modern_beer
+                                                         :traditional_beer
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#homebrewer
 :homebrewer rdf:type owl:Class ;
             rdfs:subClassOf :beer_producer .
@@ -588,6 +596,15 @@
                                 owl:someValuesFrom xsd:nonNegativeInteger
                               ] ;
           rdfs:subClassOf :beer .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#industrial_beer
+:industrial_beer rdf:type owl:Class ;
+                 owl:equivalentClass [ rdf:type owl:Restriction ;
+                                       owl:onProperty :created_by ;
+                                       owl:someValuesFrom :industry
+                                     ] ;
+                 rdfs:subClassOf :beer .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#industry
@@ -646,6 +663,24 @@
                  rdfs:subClassOf :ibu_beer .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#modern_beer
+:modern_beer rdf:type owl:Class ;
+             owl:equivalentClass [ owl:intersectionOf ( :beer
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty :has_era ;
+                                                          owl:hasValue :Modern
+                                                        ]
+                                                      ) ;
+                                   rdf:type owl:Class
+                                 ] ;
+             rdfs:subClassOf :beer ;
+             owl:disjointWith [ owl:intersectionOf ( :historical_beer
+                                                     :traditional_beer
+                                                   ) ;
+                                rdf:type owl:Class
+                              ] .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#other_ingredient
 :other_ingredient rdf:type owl:Class ;
                   rdfs:subClassOf :ingredient .
@@ -671,8 +706,8 @@
         rdfs:subClassOf :style_family .
 
 
-###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#region_origin
-:region_origin rdf:type owl:Class .
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#region
+:region rdf:type owl:Class .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#roasty
@@ -784,6 +819,20 @@
        rdfs:subClassOf :flavour .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#traditional_beer
+:traditional_beer rdf:type owl:Class ;
+                  owl:equivalentClass [ rdf:type owl:Restriction ;
+                                        owl:onProperty :has_era ;
+                                        owl:hasValue :Traditional
+                                      ] ;
+                  rdfs:subClassOf :beer ;
+                  owl:disjointWith [ owl:intersectionOf ( :historical_beer
+                                                          :modern_beer
+                                                        ) ;
+                                     rdf:type owl:Class
+                                   ] .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#vegetable
 :vegetable rdf:type owl:Class ;
            rdfs:subClassOf :other_ingredient .
@@ -845,50 +894,14 @@
 #    Individuals
 #################################################################
 
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Bottle
-:Bottle rdf:type owl:NamedIndividual .
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Belgium
+:Belgium rdf:type owl:NamedIndividual ,
+                  :region .
 
 
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Can
-:Can rdf:type owl:NamedIndividual .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Heineken
-:Heineken rdf:type owl:NamedIndividual .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Heineken_Holding
-:Heineken_Holding rdf:type owl:NamedIndividual ,
-                           :industry ;
-                  :creates :Heineken .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Ichnusa
-:Ichnusa rdf:type owl:NamedIndividual ;
-         :created_by :Heineken_Holding .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Keg
-:Keg rdf:type owl:NamedIndividual .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Moretti
-:Moretti rdf:type owl:NamedIndividual ;
-         :created_by :Heineken_Holding ;
-         :has_container :Bottle ,
-                        :Can .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Närke_Kaggen_Stormaktsporter
-:Närke_Kaggen_Stormaktsporter rdf:type owl:NamedIndividual ;
-                              :created_by :Närke_Kulturbryggeri ;
-                              :has_era :Modern ;
-                              :has_abv "12.0"^^xsd:float ;
-                              :has_srm "40"^^xsd:nonNegativeInteger .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Närke_Kulturbryggeri
-:Närke_Kulturbryggeri rdf:type owl:NamedIndividual .
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Italy
+:Italy rdf:type owl:NamedIndividual ;
+       :located_in :Italy .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Ca'_Del_Brado
@@ -902,13 +915,22 @@
                                                                          :has_abv "6.0"^^xsd:float .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Bottle
+:Bottle rdf:type owl:NamedIndividual .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Bottom_Fermented
 :Bottom_Fermented rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Can
+:Can rdf:type owl:NamedIndividual .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Cantillon
 :Cantillon rdf:type owl:NamedIndividual ,
                     :brewery ;
+           :located_in :Belgium ;
            :creates <http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Fou'Foune> .
 
 
@@ -917,14 +939,34 @@
                            :special_malts .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Heineken
+:Heineken rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Heineken_Holding
+:Heineken_Holding rdf:type owl:NamedIndividual ,
+                           :industry ;
+                  :creates :Heineken .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Historical
 :Historical rdf:type owl:NamedIndividual ,
                      :era .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Ichnusa
+:Ichnusa rdf:type owl:NamedIndividual ;
+         :created_by :Heineken_Holding .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Keg
+:Keg rdf:type owl:NamedIndividual .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#LoverBeer
 :LoverBeer rdf:type owl:NamedIndividual ,
                     :brewery ;
+           :located_in :Italy ;
            :creates :Sanbiki .
 
 
@@ -938,6 +980,13 @@
                    :creates :Sanbiki .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Moretti
+:Moretti rdf:type owl:NamedIndividual ;
+         :created_by :Heineken_Holding ;
+         :has_container :Bottle ,
+                        :Can .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Munich_malt
 :Munich_malt rdf:type owl:NamedIndividual ,
                       :base_malts .
@@ -945,13 +994,26 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Nessun_Dorma
 :Nessun_Dorma rdf:type owl:NamedIndividual ,
-                       :beer ;
+                       :craft_beer ;
+              :located_in :Italy ;
               :created_by <http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Ca'_Del_Brado> .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#NonCaramelized_malt
 :NonCaramelized_malt rdf:type owl:NamedIndividual ,
                               :special_malts .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Närke_Kaggen_Stormaktsporter
+:Närke_Kaggen_Stormaktsporter rdf:type owl:NamedIndividual ;
+                              :created_by :Närke_Kulturbryggeri ;
+                              :has_era :Modern ;
+                              :has_abv "12.0"^^xsd:float ;
+                              :has_srm "40"^^xsd:nonNegativeInteger .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Närke_Kulturbryggeri
+:Närke_Kulturbryggeri rdf:type owl:NamedIndividual .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Pale_malt
