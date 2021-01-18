@@ -1283,85 +1283,119 @@
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Fruit_Beer
-:Fruit_Beer rdf:type owl:NamedIndividual .
+:Fruit_Beer rdf:type owl:NamedIndividual ;
+            rdfs:comment "beer substyle" ;
+            rdfs:label "Fruit_Beer" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Heineken
-:Heineken rdf:type owl:NamedIndividual .
+:Heineken rdf:type owl:NamedIndividual ;
+          rdfs:comment "beer" ;
+          rdfs:label "Heineken" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Heineken_Holding
 :Heineken_Holding rdf:type owl:NamedIndividual ,
                            :industry ;
-                  :creates :Heineken .
+                  :creates :Heineken ;
+                  rdfs:comment "industry" ;
+                  rdfs:label "Heineken_Holding" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Helles_Bock
-:Helles_Bock rdf:type owl:NamedIndividual .
+:Helles_Bock rdf:type owl:NamedIndividual ;
+             rdfs:comment "Helles_Bock" ,
+                          "beer substyle" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Historical
 :Historical rdf:type owl:NamedIndividual ,
-                     :era .
+                     :era ;
+            rdfs:comment "" ;
+            rdfs:label "Historical" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Ichnusa
 :Ichnusa rdf:type owl:NamedIndividual ;
-         :created_by :Heineken_Holding .
+         :created_by :Heineken_Holding ;
+         rdfs:comment "beer" ;
+         rdfs:label "Ichnusa" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Imperial_Russian_Stout
-:Imperial_Russian_Stout rdf:type owl:NamedIndividual .
+:Imperial_Russian_Stout rdf:type owl:NamedIndividual ;
+                        rdfs:comment "beer substyle" ;
+                        rdfs:label "Imperial_Russian_Stout" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#International_Amber_Lager
-:International_Amber_Lager rdf:type owl:NamedIndividual .
+:International_Amber_Lager rdf:type owl:NamedIndividual ;
+                           rdfs:comment "beer substyle" ;
+                           rdfs:isDefinedBy "International_Amber_Lager" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#International_Dark_Lager
-:International_Dark_Lager rdf:type owl:NamedIndividual .
+:International_Dark_Lager rdf:type owl:NamedIndividual ;
+                          rdfs:comment "beer substyle" ;
+                          rdfs:label "International_Dark_Lager" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#International_Pale_Lager
-:International_Pale_Lager rdf:type owl:NamedIndividual .
+:International_Pale_Lager rdf:type owl:NamedIndividual ;
+                          rdfs:comment "beer substyle" ;
+                          rdfs:label "International_Pale_Lager" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Italy
 :Italy rdf:type owl:NamedIndividual ;
-       :located_in :Italy .
+       :located_in :Italy ;
+       rdfs:comment "country" ;
+       rdfs:label "Italy" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Keg
-:Keg rdf:type owl:NamedIndividual .
+:Keg rdf:type owl:NamedIndividual ;
+     rdfs:comment "" ;
+     rdfs:label "Keg" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#LoverBeer
 :LoverBeer rdf:type owl:NamedIndividual ,
                     :brewery ;
            :creates :Sanbiki ;
-           :located_in :Italy .
+           :located_in :Italy ;
+           rdfs:comment "brewery" ;
+           rdfs:label "LoverBeer" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Modern
-:Modern rdf:type owl:NamedIndividual .
+:Modern rdf:type owl:NamedIndividual ;
+        rdfs:comment "" ;
+        rdfs:label "Modern" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Moor_Beer_Company
 :Moor_Beer_Company rdf:type owl:NamedIndividual ,
                             :brewery ;
-                   :creates :Sanbiki .
+                   :creates :Sanbiki ;
+                   rdfs:comment "brewery" ;
+                   rdfs:label "Moor_Beer_Company" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Moretti
 :Moretti rdf:type owl:NamedIndividual ;
          :created_by :Heineken_Holding ;
          :has_container :Bottle ,
-                        :Can .
+                        :Can ;
+         rdfs:comment "beer" ;
+         rdfs:label "Moretti" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Munich_malt
 :Munich_malt rdf:type owl:NamedIndividual ,
-                      :base_malts .
+                      :base_malts ;
+             rdfs:comment "malt" ;
+             rdfs:label "Munich_malt" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Nessun_Dorma
@@ -1369,12 +1403,16 @@
                        :craft_beer ;
               :created_by <http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer_ontology#Ca'_Del_Brado> ;
               :has_substyle :European_Sour ;
-              :located_in :Italy .
+              :located_in :Italy ;
+              rdfs:comment "Nessun_Dorma" ,
+                           "beer" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#NonCaramelized_malt
 :NonCaramelized_malt rdf:type owl:NamedIndividual ,
-                              :special_malts .
+                              :special_malts ;
+                     rdfs:comment "" ;
+                     rdfs:isDefinedBy "NonCaramelized_malt" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Närke_Kaggen_Stormaktsporter
@@ -1383,42 +1421,58 @@
                               :has_era :Modern ;
                               :has_substyle :Baltic_Porter ;
                               :has_abv "12.0"^^xsd:float ;
-                              :has_srm "40"^^xsd:nonNegativeInteger .
+                              :has_srm "40"^^xsd:nonNegativeInteger ;
+                              rdfs:comment "brewery" ;
+                              rdfs:label "Närke_Kaggen_Stormaktsporter" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Närke_Kulturbryggeri
 :Närke_Kulturbryggeri rdf:type owl:NamedIndividual ;
-                      :produces_hl "7000"^^xsd:nonNegativeInteger .
+                      :produces_hl "7000"^^xsd:nonNegativeInteger ;
+                      rdfs:comment "beer" ;
+                      rdfs:label "Närke_Kulturbryggeri" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Ordinary_Bitter
-:Ordinary_Bitter rdf:type owl:NamedIndividual .
+:Ordinary_Bitter rdf:type owl:NamedIndividual ;
+                 rdfs:comment "beer substyle" ;
+                 rdfs:label "Ordinary_Bitter" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Pale_malt
 :Pale_malt rdf:type owl:NamedIndividual ,
-                    :base_malts .
+                    :base_malts ;
+           rdfs:comment "malt" ;
+           rdfs:label "Pale_malt" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Papessa
 :Papessa rdf:type owl:NamedIndividual ;
          :created_by :LoverBeer ;
-         :has_substyle :Imperial_Russian_Stout .
+         :has_substyle :Imperial_Russian_Stout ;
+         rdfs:comment "beer" ;
+         rdfs:label "Papessa" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Pils_malt
 :Pils_malt rdf:type owl:NamedIndividual ,
-                    :base_malts .
+                    :base_malts ;
+           rdfs:comment "" ;
+           rdfs:label "Pils_malt" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Raspberry
 :Raspberry rdf:type owl:NamedIndividual ,
-                    :fruit .
+                    :fruit ;
+           rdfs:comment "Raspberry" ,
+                        "fruit" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Roasted_malt
 :Roasted_malt rdf:type owl:NamedIndividual ,
-                       :special_malts .
+                       :special_malts ;
+              rdfs:comment "" ,
+                           "Roasted_malt" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Rosé_de_Gambrinus
@@ -1430,7 +1484,9 @@
                    :has_ingredient :Raspberry ;
                    :has_substyle :Fruit_Beer ;
                    :has_abv "5.5"^^xsd:float ;
-                   :has_ibu "25"^^xsd:positiveInteger .
+                   :has_ibu "25"^^xsd:positiveInteger ;
+                   rdfs:comment "beer" ;
+                   rdfs:label "Rosé_de_Gambrinus" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Sanbiki
@@ -1440,25 +1496,35 @@
          :has_substyle :Ordinary_Bitter ;
          :has_ibu "45"^^xsd:nonNegativeInteger ;
          :has_srm "8"^^xsd:nonNegativeInteger ;
-         :has_year "2018"^^xsd:nonNegativeInteger .
+         :has_year "2018"^^xsd:nonNegativeInteger ;
+         rdfs:comment "beer" ;
+         rdfs:label "Sanbiki" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Top_Fermented
-:Top_Fermented rdf:type owl:NamedIndividual .
+:Top_Fermented rdf:type owl:NamedIndividual ;
+               rdfs:comment "" ;
+               rdfs:label "Top_Fermented" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Traditional
 :Traditional rdf:type owl:NamedIndividual ,
-                      :era .
+                      :era ;
+             rdfs:comment "" ;
+             rdfs:label "Traditional" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Vienna_malt
 :Vienna_malt rdf:type owl:NamedIndividual ,
-                      :base_malts .
+                      :base_malts ;
+             rdfs:comment "" ;
+             rdfs:label "Vienna_malt" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Wild_Fermented
-:Wild_Fermented rdf:type owl:NamedIndividual .
+:Wild_Fermented rdf:type owl:NamedIndividual ;
+                rdfs:comment "" ,
+                             "Wild_Fermented" .
 
 
 #################################################################
