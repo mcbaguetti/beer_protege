@@ -237,7 +237,8 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#balanced
 :balanced rdf:type owl:Class ;
-          rdfs:subClassOf :flavour .
+          rdfs:subClassOf :flavour ;
+          rdfs:label "balanced" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#base_malts
@@ -343,7 +344,8 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#bitter
 :bitter rdf:type owl:Class ;
-        rdfs:subClassOf :flavour .
+        rdfs:subClassOf :flavour ;
+        rdfs:label "bitter" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#black_colored
@@ -564,7 +566,8 @@
                                        :Traditional
                                      )
                          ] ;
-     rdfs:subClassOf :beer_features .
+     rdfs:subClassOf :beer_features ;
+     rdfs:label "era" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#fermentation
@@ -575,12 +578,14 @@
                                                 :Wild_Fermented
                                               )
                                   ] ;
-              rdfs:subClassOf :beer_features .
+              rdfs:subClassOf :beer_features ;
+              rdfs:label "fermentation" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#flavour
 :flavour rdf:type owl:Class ;
-         rdfs:subClassOf :beer_features .
+         rdfs:subClassOf :beer_features ;
+         rdfs:label "flavour" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#fruit
@@ -591,7 +596,8 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#fruity
 :fruity rdf:type owl:Class ;
-        rdfs:subClassOf :flavour .
+        rdfs:subClassOf :flavour ;
+        rdfs:label "fruity" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#gold_colored
@@ -675,7 +681,8 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#hoppy
 :hoppy rdf:type owl:Class ;
-       rdfs:subClassOf :flavour .
+       rdfs:subClassOf :flavour ;
+       rdfs:label "hoppy" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#ibu_beer
@@ -796,7 +803,8 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#malty
 :malty rdf:type owl:Class ;
-       rdfs:subClassOf :flavour .
+       rdfs:subClassOf :flavour ;
+       rdfs:label "malty" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#medium_ibu_beer
@@ -902,7 +910,8 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#roasty
 :roasty rdf:type owl:Class ;
-        rdfs:subClassOf :flavour .
+        rdfs:subClassOf :flavour ;
+        rdfs:label "roasty" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#session_strength_beer
@@ -925,12 +934,14 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#smoke
 :smoke rdf:type owl:Class ;
-       rdfs:subClassOf :flavour .
+       rdfs:subClassOf :flavour ;
+       rdfs:label "smoke" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#sour
 :sour rdf:type owl:Class ;
-      rdfs:subClassOf :flavour .
+      rdfs:subClassOf :flavour ;
+      rdfs:label "sour" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#special_malts
@@ -963,7 +974,8 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#spicy
 :spicy rdf:type owl:Class ;
-       rdfs:subClassOf :flavour .
+       rdfs:subClassOf :flavour ;
+       rdfs:label "spicy" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#standard_strength_beer
@@ -1049,12 +1061,14 @@
                                             :International_Pale_Lager
                                           )
                               ] ;
-          rdfs:subClassOf :beer_features .
+          rdfs:subClassOf :beer_features ;
+          rdfs:label "substyle" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#sweet
 :sweet rdf:type owl:Class ;
-       rdfs:subClassOf :flavour .
+       rdfs:subClassOf :flavour ;
+       rdfs:label "sweet" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#traditional_beer
@@ -1114,7 +1128,8 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#wood
 :wood rdf:type owl:Class ;
-      rdfs:subClassOf :flavour .
+      rdfs:subClassOf :flavour ;
+      rdfs:label "wood" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#yeast
