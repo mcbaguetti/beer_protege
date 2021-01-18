@@ -181,7 +181,10 @@
 #################################################################
 
 ###  http://purl.org/dc/terms/creator
-<http://purl.org/dc/terms/creator> rdf:type owl:Class .
+<http://purl.org/dc/terms/creator> rdf:type owl:Class ;
+                                   owl:equivalentClass :beer_producer ;
+                                   rdfs:comment "creator" ;
+                                   rdfs:label "dcterms:creator" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#abv_beer
@@ -305,7 +308,6 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#beer_producer
 :beer_producer rdf:type owl:Class ;
-               rdfs:subClassOf <http://purl.org/dc/terms/creator> ;
                rdfs:comment "beer producer" ;
                rdfs:label "beer_producer" .
 
