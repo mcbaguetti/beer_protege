@@ -13,6 +13,19 @@
 #    Object Properties
 #################################################################
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#has_substyle
+:has_substyle rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf :has_beer_feature ;
+              owl:inverseOf :has_beer_feature ;
+              rdfs:domain :beer ;
+              rdfs:range :substyle .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#is_substyle_of
+:is_substyle_of rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf :has_beer_feature .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#blended_with
 :blended_with rdf:type owl:ObjectProperty ,
                        owl:SymmetricProperty ;
@@ -55,7 +68,6 @@
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_fermentation
 :has_fermentation rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf :has_beer_feature ;
-                  rdf:type owl:FunctionalProperty ;
                   rdfs:domain :beer ;
                   rdfs:range :fermentation .
 
@@ -63,7 +75,6 @@
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_flavour
 :has_flavour rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf :has_beer_feature ;
-             rdf:type owl:FunctionalProperty ;
              rdfs:domain :beer ;
              rdfs:range :flavour .
 
@@ -76,10 +87,10 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_style
 :has_style rdf:type owl:ObjectProperty ;
-           rdfs:subPropertyOf :has_beer_feature ;
+           rdfs:subPropertyOf owl:topObjectProperty ;
            rdf:type owl:FunctionalProperty ;
            rdfs:domain :beer ;
-           rdfs:range :style_family .
+           rdfs:range :style_family_beer .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#located_in
@@ -125,9 +136,44 @@
           rdfs:range xsd:nonNegativeInteger .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#produces_hl
+:produces_hl rdf:type owl:DatatypeProperty ;
+             rdfs:domain :beer_producer ;
+             rdfs:range xsd:positiveInteger .
+
+
 #################################################################
 #    Classes
 #################################################################
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#substyle
+:substyle rdf:type owl:Class ;
+          owl:equivalentClass [ rdf:type owl:Class ;
+                                owl:oneOf ( :American_Lager
+                                            :American_Light_Lager
+                                            :American_Porter
+                                            :American_Wheat_Beer
+                                            :Baltic_Porter
+                                            :British_Brown_Ale
+                                            :Cream_Ale
+                                            :Czech_Pale_Lager
+                                            :English_Barleywine
+                                            :English_Ipa
+                                            :European_Sour
+                                            :Fruit_Beer
+                                            :Gueuze
+                                            :Helles_Bock
+                                            :Imperial_Russian_Stout
+                                            :International_Amber_Lager
+                                            :International_Dark_Lager
+                                            :International_Pale_Lager
+                                            :Irish_Stout
+                                            :Kolsch
+                                            :Strong_Bitter
+                                          )
+                              ] ;
+          rdfs:subClassOf :beer_features .
+
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#abv_beer
 :abv_beer rdf:type owl:Class ;
@@ -140,7 +186,11 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#amber_ale
 :amber_ale rdf:type owl:Class ;
-           rdfs:subClassOf :style_family .
+           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                 owl:onProperty :has_substyle ;
+                                 owl:hasValue :Cream_Ale
+                               ] ;
+           rdfs:subClassOf :style_family_beer .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#amber_colored
@@ -161,7 +211,22 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#amber_lager
 :amber_lager rdf:type owl:Class ;
-             rdfs:subClassOf :style_family .
+             owl:equivalentClass [ rdf:type owl:Class ;
+                                   owl:unionOf ( [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :has_substyle ;
+                                                   owl:hasValue :American_Lager
+                                                 ]
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :has_substyle ;
+                                                   owl:hasValue :American_Light_Lager
+                                                 ]
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :has_substyle ;
+                                                   owl:hasValue :International_Amber_Lager
+                                                 ]
+                                               )
+                                 ] ;
+             rdfs:subClassOf :style_family_beer .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#balanced
@@ -297,17 +362,36 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#bock
 :bock rdf:type owl:Class ;
-      rdfs:subClassOf :style_family .
+      owl:equivalentClass [ rdf:type owl:Restriction ;
+                            owl:onProperty :has_substyle ;
+                            owl:hasValue :Helles_Bock
+                          ] ;
+      rdfs:subClassOf :style_family_beer .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#brewery
 :brewery rdf:type owl:Class ;
+         owl:equivalentClass [ rdf:type owl:Restriction ;
+                               owl:onProperty :produces_hl ;
+                               owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                    owl:onDatatype xsd:nonNegativeInteger ;
+                                                    owl:withRestrictions ( [ xsd:minInclusive "0"^^xsd:nonNegativeInteger
+                                                                           ]
+                                                                           [ xsd:maxExclusive "10000"^^xsd:nonNegativeInteger
+                                                                           ]
+                                                                         )
+                                                  ]
+                             ] ;
          rdfs:subClassOf :beer_producer .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#brown_ale
 :brown_ale rdf:type owl:Class ;
-           rdfs:subClassOf :style_family .
+           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                 owl:onProperty :has_substyle ;
+                                 owl:hasValue :British_Brown_Ale
+                               ] ;
+           rdfs:subClassOf :style_family_beer .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#brown_colored
@@ -406,7 +490,11 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#dark_lager
 :dark_lager rdf:type owl:Class ;
-            rdfs:subClassOf :style_family .
+            owl:equivalentClass [ rdf:type owl:Restriction ;
+                                  owl:onProperty :has_substyle ;
+                                  owl:hasValue :International_Dark_Lager
+                                ] ;
+            rdfs:subClassOf :style_family_beer .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#deep_amber_colored
@@ -542,7 +630,8 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#homebrewer
 :homebrewer rdf:type owl:Class ;
-            rdfs:subClassOf :beer_producer .
+            rdfs:subClassOf :beer_producer ,
+                            :person .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#hop
@@ -575,6 +664,15 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#industry
 :industry rdf:type owl:Class ;
+          owl:equivalentClass [ rdf:type owl:Restriction ;
+                                owl:onProperty :produces_hl ;
+                                owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                     owl:onDatatype xsd:nonNegativeInteger ;
+                                                     owl:withRestrictions ( [ xsd:minInclusive "10000"^^xsd:nonNegativeInteger
+                                                                            ]
+                                                                          )
+                                                   ]
+                              ] ;
           rdfs:subClassOf :beer_producer .
 
 
@@ -584,7 +682,11 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#ipa
 :ipa rdf:type owl:Class ;
-     rdfs:subClassOf :style_family .
+     owl:equivalentClass [ rdf:type owl:Restriction ;
+                           owl:onProperty :has_substyle ;
+                           owl:hasValue :English_Ipa
+                         ] ;
+     rdfs:subClassOf :style_family_beer .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#italian_beer
@@ -696,22 +798,60 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#pale_ale
 :pale_ale rdf:type owl:Class ;
-          rdfs:subClassOf :style_family .
+          owl:equivalentClass [ rdf:type owl:Class ;
+                                owl:unionOf ( [ rdf:type owl:Restriction ;
+                                                owl:onProperty :has_substyle ;
+                                                owl:hasValue :European_Sour
+                                              ]
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty :has_substyle ;
+                                                owl:hasValue :Gueuze
+                                              ]
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty :has_substyle ;
+                                                owl:hasValue :Ordinary_Bitter
+                                              ]
+                                            )
+                              ] ;
+          rdfs:subClassOf :style_family_beer .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#pale_lager
 :pale_lager rdf:type owl:Class ;
-            rdfs:subClassOf :style_family .
+            owl:equivalentClass [ rdf:type owl:Restriction ;
+                                  owl:onProperty :has_substyle ;
+                                  owl:hasValue :Czech_Pale_Lager
+                                ] ;
+            rdfs:subClassOf :style_family_beer .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#person
+:person rdf:type owl:Class .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#pilsner
 :pilsner rdf:type owl:Class ;
-         rdfs:subClassOf :style_family .
+         owl:equivalentClass [ rdf:type owl:Restriction ;
+                               owl:onProperty :has_substyle ;
+                               owl:hasValue :Kolsch
+                             ] ;
+         rdfs:subClassOf :style_family_beer .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#porter
 :porter rdf:type owl:Class ;
-        rdfs:subClassOf :style_family .
+        owl:equivalentClass [ rdf:type owl:Class ;
+                              owl:unionOf ( [ rdf:type owl:Restriction ;
+                                              owl:onProperty :has_substyle ;
+                                              owl:hasValue :American_Porter
+                                            ]
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :has_substyle ;
+                                              owl:hasValue :Baltic_Porter
+                                            ]
+                                          )
+                            ] ;
+        rdfs:subClassOf :style_family_beer .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#region
@@ -762,7 +902,11 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#speciality_beer
 :speciality_beer rdf:type owl:Class ;
-                 rdfs:subClassOf :style_family .
+                 owl:equivalentClass [ rdf:type owl:Restriction ;
+                                       owl:onProperty :has_substyle ;
+                                       owl:hasValue :Fruit_Beer
+                                     ] ;
+                 rdfs:subClassOf :style_family_beer .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#spice
@@ -793,7 +937,18 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#stout
 :stout rdf:type owl:Class ;
-       rdfs:subClassOf :style_family .
+       owl:equivalentClass [ rdf:type owl:Class ;
+                             owl:unionOf ( [ rdf:type owl:Restriction ;
+                                             owl:onProperty :has_substyle ;
+                                             owl:hasValue :Imperial_Russian_Stout
+                                           ]
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :has_substyle ;
+                                             owl:hasValue :Irish_Stout
+                                           ]
+                                         )
+                           ] ;
+       rdfs:subClassOf :style_family_beer .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#straw_colored
@@ -814,12 +969,23 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#strong_ale
 :strong_ale rdf:type owl:Class ;
-            rdfs:subClassOf :style_family .
+            owl:equivalentClass [ rdf:type owl:Class ;
+                                  owl:unionOf ( [ rdf:type owl:Restriction ;
+                                                  owl:onProperty :has_substyle ;
+                                                  owl:hasValue :English_Barleywine
+                                                ]
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty :has_substyle ;
+                                                  owl:hasValue :Strong_Bitter
+                                                ]
+                                              )
+                                ] ;
+            rdfs:subClassOf :style_family_beer .
 
 
-###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#style_family
-:style_family rdf:type owl:Class ;
-              rdfs:subClassOf :beer_features .
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#style_family_beer
+:style_family_beer rdf:type owl:Class ;
+                   rdfs:subClassOf :beer .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#sweet
@@ -869,7 +1035,11 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#wheat_beer
 :wheat_beer rdf:type owl:Class ;
-            rdfs:subClassOf :style_family .
+            owl:equivalentClass [ rdf:type owl:Restriction ;
+                                  owl:onProperty :has_substyle ;
+                                  owl:hasValue :American_Wheat_Beer
+                                ] ;
+            rdfs:subClassOf :style_family_beer .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#wood
@@ -902,6 +1072,100 @@
 #    Individuals
 #################################################################
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#American_Lager
+:American_Lager rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#American_Light_Lager
+:American_Light_Lager rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#American_Porter
+:American_Porter rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#American_Wheat_Beer
+:American_Wheat_Beer rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Baltic_Porter
+:Baltic_Porter rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#British_Brown_Ale
+:British_Brown_Ale rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Cream_Ale
+:Cream_Ale rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Czech_Pale_Lager
+:Czech_Pale_Lager rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#English_Barleywine
+:English_Barleywine rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#English_Ipa
+:English_Ipa rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#European_Sour
+:European_Sour rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Fruit_Beer
+:Fruit_Beer rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Gueuze
+:Gueuze rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Helles_Bock
+:Helles_Bock rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Imperial_Russian_Stout
+:Imperial_Russian_Stout rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#International_Amber_Lager
+:International_Amber_Lager rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#International_Dark_Lager
+:International_Dark_Lager rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#International_Pale_Lager
+:International_Pale_Lager rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Irish_Stout
+:Irish_Stout rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Kolsch
+:Kolsch rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Ordinary_Bitter
+:Ordinary_Bitter rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Papessa
+:Papessa rdf:type owl:NamedIndividual ;
+         :has_substyle :Imperial_Russian_Stout ;
+         :created_by :LoverBeer .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Strong_Bitter
+:Strong_Bitter rdf:type owl:NamedIndividual .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Ca'_Del_Brado
 <http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Ca'_Del_Brado> rdf:type owl:NamedIndividual ;
                                                                              :creates :Nessun_Dorma .
@@ -909,6 +1173,7 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Fou'Foune
 <http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Fou'Foune> rdf:type owl:NamedIndividual ;
+                                                                         :has_substyle :Fruit_Beer ;
                                                                          :has_fermentation :Wild_Fermented ;
                                                                          :has_abv "6.0"^^xsd:float .
 
@@ -1003,6 +1268,7 @@
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Nessun_Dorma
 :Nessun_Dorma rdf:type owl:NamedIndividual ,
                        :craft_beer ;
+              :has_substyle :European_Sour ;
               :created_by <http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer#Ca'_Del_Brado> ;
               :located_in :Italy .
 
@@ -1014,6 +1280,7 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Närke_Kaggen_Stormaktsporter
 :Närke_Kaggen_Stormaktsporter rdf:type owl:NamedIndividual ;
+                              :has_substyle :Baltic_Porter ;
                               :created_by :Närke_Kulturbryggeri ;
                               :has_era :Modern ;
                               :has_abv "12.0"^^xsd:float ;
@@ -1021,7 +1288,8 @@
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Närke_Kulturbryggeri
-:Närke_Kulturbryggeri rdf:type owl:NamedIndividual .
+:Närke_Kulturbryggeri rdf:type owl:NamedIndividual ;
+                      :produces_hl "7000"^^xsd:nonNegativeInteger .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Pale_malt
@@ -1047,6 +1315,7 @@
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Rosé_de_Gambrinus
 :Rosé_de_Gambrinus rdf:type owl:NamedIndividual ,
                             :beer ;
+                   :has_substyle :Fruit_Beer ;
                    :created_by :Cantillon ;
                    :has_container :Bottle ;
                    :has_era :Traditional ;
@@ -1058,6 +1327,7 @@
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Sanbiki
 :Sanbiki rdf:type owl:NamedIndividual ,
                   :collab_beer ;
+         :has_substyle :Ordinary_Bitter ;
          :has_era :Modern ;
          :has_ibu "45"^^xsd:nonNegativeInteger ;
          :has_srm "8"^^xsd:nonNegativeInteger ;
