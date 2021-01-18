@@ -328,6 +328,10 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#bock
 :bock rdf:type owl:Class ;
+      owl:equivalentClass [ rdf:type owl:Restriction ;
+                            owl:onProperty :has_substyle ;
+                            owl:hasValue :Helles_Bock
+                          ] ;
       rdfs:subClassOf :style_family_beer .
 
 
@@ -452,6 +456,10 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#dark_lager
 :dark_lager rdf:type owl:Class ;
+            owl:equivalentClass [ rdf:type owl:Restriction ;
+                                  owl:onProperty :has_substyle ;
+                                  owl:hasValue :International_Dark_Lager
+                                ] ;
             rdfs:subClassOf :style_family_beer .
 
 
@@ -763,6 +771,10 @@
                                               ]
                                               [ rdf:type owl:Restriction ;
                                                 owl:onProperty :has_substyle ;
+                                                owl:hasValue :Gueuze
+                                              ]
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty :has_substyle ;
                                                 owl:hasValue :Ordinary_Bitter
                                               ]
                                             )
@@ -944,6 +956,30 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#substyle
 :substyle rdf:type owl:Class ;
+          owl:equivalentClass [ rdf:type owl:Class ;
+                                owl:oneOf ( :American_Lager
+                                            :American_Light_Lager
+                                            :American_Porter
+                                            :American_Wheat_Beer
+                                            :Baltic_Porter
+                                            :British_Brown_Ale
+                                            :Cream_Ale
+                                            :Czech_Pale_Lager
+                                            :English_Barleywine
+                                            :English_Ipa
+                                            :European_Sour
+                                            :Fruit_Beer
+                                            :Gueuze
+                                            :Helles_Bock
+                                            :Imperial_Russian_Stout
+                                            :International_Amber_Lager
+                                            :International_Dark_Lager
+                                            :International_Pale_Lager
+                                            :Irish_Stout
+                                            :Kolsch
+                                            :Strong_Bitter
+                                          )
+                              ] ;
           rdfs:subClassOf :beer_features .
 
 
@@ -994,6 +1030,10 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#wheat_beer
 :wheat_beer rdf:type owl:Class ;
+            owl:equivalentClass [ rdf:type owl:Restriction ;
+                                  owl:onProperty :has_substyle ;
+                                  owl:hasValue :American_Wheat_Beer
+                                ] ;
             rdfs:subClassOf :style_family_beer .
 
 
@@ -1043,8 +1083,16 @@
 :American_Lager rdf:type owl:NamedIndividual .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#American_Light_Lager
+:American_Light_Lager rdf:type owl:NamedIndividual .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#American_Porter
 :American_Porter rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#American_Wheat_Beer
+:American_Wheat_Beer rdf:type owl:NamedIndividual .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Baltic_Porter
@@ -1108,6 +1156,10 @@
 :Fruit_Beer rdf:type owl:NamedIndividual .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Gueuze
+:Gueuze rdf:type owl:NamedIndividual .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Heineken
 :Heineken rdf:type owl:NamedIndividual .
 
@@ -1116,6 +1168,10 @@
 :Heineken_Holding rdf:type owl:NamedIndividual ,
                            :industry ;
                   :creates :Heineken .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Helles_Bock
+:Helles_Bock rdf:type owl:NamedIndividual .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Historical
@@ -1134,6 +1190,10 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#International_Amber_Lager
 :International_Amber_Lager rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#International_Dark_Lager
+:International_Dark_Lager rdf:type owl:NamedIndividual .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#International_Pale_Lager
