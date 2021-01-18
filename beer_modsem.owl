@@ -797,10 +797,6 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#pilsner
 :pilsner rdf:type owl:Class ;
-         owl:equivalentClass [ rdf:type owl:Restriction ;
-                               owl:onProperty :has_substyle ;
-                               owl:hasValue :Kolsch
-                             ] ;
          rdfs:subClassOf :style_family_beer .
 
 
@@ -903,16 +899,9 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#stout
 :stout rdf:type owl:Class ;
-       owl:equivalentClass [ rdf:type owl:Class ;
-                             owl:unionOf ( [ rdf:type owl:Restriction ;
-                                             owl:onProperty :has_substyle ;
-                                             owl:hasValue :Imperial_Russian_Stout
-                                           ]
-                                           [ rdf:type owl:Restriction ;
-                                             owl:onProperty :has_substyle ;
-                                             owl:hasValue :Irish_Stout
-                                           ]
-                                         )
+       owl:equivalentClass [ rdf:type owl:Restriction ;
+                             owl:onProperty :has_substyle ;
+                             owl:hasValue :Imperial_Russian_Stout
                            ] ;
        rdfs:subClassOf :style_family_beer .
 
@@ -935,16 +924,9 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#strong_ale
 :strong_ale rdf:type owl:Class ;
-            owl:equivalentClass [ rdf:type owl:Class ;
-                                  owl:unionOf ( [ rdf:type owl:Restriction ;
-                                                  owl:onProperty :has_substyle ;
-                                                  owl:hasValue :English_Barleywine
-                                                ]
-                                                [ rdf:type owl:Restriction ;
-                                                  owl:onProperty :has_substyle ;
-                                                  owl:hasValue :Strong_Bitter
-                                                ]
-                                              )
+            owl:equivalentClass [ rdf:type owl:Restriction ;
+                                  owl:onProperty :has_substyle ;
+                                  owl:hasValue :English_Barleywine
                                 ] ;
             rdfs:subClassOf :style_family_beer .
 
@@ -975,9 +957,6 @@
                                             :International_Amber_Lager
                                             :International_Dark_Lager
                                             :International_Pale_Lager
-                                            :Irish_Stout
-                                            :Kolsch
-                                            :Strong_Bitter
                                           )
                               ] ;
           rdfs:subClassOf :beer_features .
@@ -1200,10 +1179,6 @@
 :International_Pale_Lager rdf:type owl:NamedIndividual .
 
 
-###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Irish_Stout
-:Irish_Stout rdf:type owl:NamedIndividual .
-
-
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Italy
 :Italy rdf:type owl:NamedIndividual ;
        :located_in :Italy .
@@ -1211,10 +1186,6 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Keg
 :Keg rdf:type owl:NamedIndividual .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Kolsch
-:Kolsch rdf:type owl:NamedIndividual .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#LoverBeer
@@ -1323,10 +1294,6 @@
          :has_ibu "45"^^xsd:nonNegativeInteger ;
          :has_srm "8"^^xsd:nonNegativeInteger ;
          :has_year "2018"^^xsd:nonNegativeInteger .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Strong_Bitter
-:Strong_Bitter rdf:type owl:NamedIndividual .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Top_Fermented
