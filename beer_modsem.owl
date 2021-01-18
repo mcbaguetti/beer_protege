@@ -931,6 +931,7 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#person
 :person rdf:type owl:Class ;
+        owl:equivalentClass <http://xmlns.com/foaf/0.1/person> ;
         rdfs:comment "person" ;
         rdfs:label "person" .
 
@@ -1231,6 +1232,12 @@
                 rdfs:subClassOf :colored_beer ;
                 rdfs:comment "yellow colored" ;
                 rdfs:label "yellow_colored" .
+
+
+###  http://xmlns.com/foaf/0.1/person
+<http://xmlns.com/foaf/0.1/person> rdf:type owl:Class ;
+                                   rdfs:comment "person with foaf alignment" ;
+                                   rdfs:label "foaf:person" .
 
 
 #################################################################
