@@ -771,10 +771,6 @@
                                               ]
                                               [ rdf:type owl:Restriction ;
                                                 owl:onProperty :has_substyle ;
-                                                owl:hasValue :Gueuze
-                                              ]
-                                              [ rdf:type owl:Restriction ;
-                                                owl:onProperty :has_substyle ;
                                                 owl:hasValue :Ordinary_Bitter
                                               ]
                                             )
@@ -951,7 +947,6 @@
                                             :English_Ipa
                                             :European_Sour
                                             :Fruit_Beer
-                                            :Gueuze
                                             :Helles_Bock
                                             :Imperial_Russian_Stout
                                             :International_Amber_Lager
@@ -1133,10 +1128,6 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Fruit_Beer
 :Fruit_Beer rdf:type owl:NamedIndividual .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Gueuze
-:Gueuze rdf:type owl:NamedIndividual .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Heineken
