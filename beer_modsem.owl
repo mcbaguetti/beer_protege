@@ -328,10 +328,6 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#bock
 :bock rdf:type owl:Class ;
-      owl:equivalentClass [ rdf:type owl:Restriction ;
-                            owl:onProperty :has_substyle ;
-                            owl:hasValue :Helles_Bock
-                          ] ;
       rdfs:subClassOf :style_family_beer .
 
 
@@ -456,10 +452,6 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#dark_lager
 :dark_lager rdf:type owl:Class ;
-            owl:equivalentClass [ rdf:type owl:Restriction ;
-                                  owl:onProperty :has_substyle ;
-                                  owl:hasValue :International_Dark_Lager
-                                ] ;
             rdfs:subClassOf :style_family_beer .
 
 
@@ -1002,10 +994,6 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#wheat_beer
 :wheat_beer rdf:type owl:Class ;
-            owl:equivalentClass [ rdf:type owl:Restriction ;
-                                  owl:onProperty :has_substyle ;
-                                  owl:hasValue :American_Wheat_Beer
-                                ] ;
             rdfs:subClassOf :style_family_beer .
 
 
@@ -1057,10 +1045,6 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#American_Porter
 :American_Porter rdf:type owl:NamedIndividual .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#American_Wheat_Beer
-:American_Wheat_Beer rdf:type owl:NamedIndividual .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Baltic_Porter
@@ -1134,10 +1118,6 @@
                   :creates :Heineken .
 
 
-###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Helles_Bock
-:Helles_Bock rdf:type owl:NamedIndividual .
-
-
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Historical
 :Historical rdf:type owl:NamedIndividual ,
                      :era .
@@ -1154,10 +1134,6 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#International_Amber_Lager
 :International_Amber_Lager rdf:type owl:NamedIndividual .
-
-
-###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#International_Dark_Lager
-:International_Dark_Lager rdf:type owl:NamedIndividual .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#International_Pale_Lager
