@@ -9,6 +9,7 @@
 <http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer_ontology> rdf:type owl:Ontology ;
                                                                          owl:versionIRI <http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer/1.0> ;
                                                                          <http://purl.org/dc/elements/1.1/creator> "Tommaso Comelli" ;
+                                                                         <http://purl.org/dc/elements/1.1/date> "18/01/2021" ;
                                                                          <http://purl.org/dc/elements/1.1/description> "An Owl Ontology about beer classification" ;
                                                                          <http://purl.org/dc/elements/1.1/title> "Beer Ontology" ;
                                                                          <http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#vann:preferredNamespacePrefix> "http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer_ontology" ;
