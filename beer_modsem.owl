@@ -51,31 +51,41 @@
 :blended_with rdf:type owl:ObjectProperty ,
                        owl:SymmetricProperty ;
               rdfs:domain :beer ;
-              rdfs:range :beer .
+              rdfs:range :beer ;
+              rdfs:comment "property if a beer is blended with another one" ;
+              rdfs:label "blended_with" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#created_by
 :created_by rdf:type owl:ObjectProperty ;
             rdfs:domain :beer ;
-            rdfs:range :beer_producer .
+            rdfs:range :beer_producer ;
+            rdfs:comment "" ;
+            rdfs:label "created_by" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#creates
 :creates rdf:type owl:ObjectProperty ;
          rdfs:domain :beer_producer ;
-         rdfs:range :beer .
+         rdfs:range :beer ;
+         rdfs:comment "" ;
+         rdfs:label "creates" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_beer_feature
 :has_beer_feature rdf:type owl:ObjectProperty ;
                   rdfs:domain :beer ;
-                  rdfs:range :beer_features .
+                  rdfs:range :beer_features ;
+                  rdfs:comment "beer's features" ;
+                  rdfs:label "has_beer_feature" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_container
 :has_container rdf:type owl:ObjectProperty ;
                rdfs:domain :beer ;
-               rdfs:range :container .
+               rdfs:range :container ;
+               rdfs:comment "" ;
+               rdfs:label "has_container" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_era
@@ -83,27 +93,35 @@
          rdfs:subPropertyOf :has_beer_feature ;
          rdf:type owl:FunctionalProperty ;
          rdfs:domain :beer ;
-         rdfs:range :era .
+         rdfs:range :era ;
+         rdfs:comment "" ;
+         rdfs:label "has_era" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_fermentation
 :has_fermentation rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf :has_beer_feature ;
                   rdfs:domain :beer ;
-                  rdfs:range :fermentation .
+                  rdfs:range :fermentation ;
+                  rdfs:comment "" ;
+                  rdfs:label "has_fermentation" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_flavour
 :has_flavour rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf :has_beer_feature ;
              rdfs:domain :beer ;
-             rdfs:range :flavour .
+             rdfs:range :flavour ;
+             rdfs:comment "" ;
+             rdfs:label "has_flavour" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_ingredient
 :has_ingredient rdf:type owl:ObjectProperty ;
                 rdfs:domain :beer ;
-                rdfs:range :ingredient .
+                rdfs:range :ingredient ;
+                rdfs:comment "" ;
+                rdfs:label "has_ingredient" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_style
@@ -111,7 +129,9 @@
            rdfs:subPropertyOf owl:topObjectProperty ;
            rdf:type owl:FunctionalProperty ;
            rdfs:domain :beer ;
-           rdfs:range :style_family_beer .
+           rdfs:range :style_family_beer ;
+           rdfs:comment "" ;
+           rdfs:label "has_style" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_substyle
@@ -119,12 +139,16 @@
               rdfs:subPropertyOf :has_beer_feature ;
               owl:inverseOf :is_substyle_of ;
               rdfs:domain :beer ;
-              rdfs:range :substyle .
+              rdfs:range :substyle ;
+              rdfs:comment "" ;
+              rdfs:label "has_substyle" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#is_substyle_of
 :is_substyle_of rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf :has_beer_feature .
+                rdfs:subPropertyOf :has_beer_feature ;
+                rdfs:comment "" ;
+                rdfs:label "is_substyle_of" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#located_in
@@ -136,7 +160,14 @@
                                    ) ,
                                    ( :creates
                                      :located_in
-                                   ) .
+                                   ) ;
+            rdfs:comment "" ;
+            rdfs:label "located_in" .
+
+
+###  http://www.w3.org/2002/07/owl#topObjectProperty
+owl:topObjectProperty rdfs:comment "" ;
+                      rdfs:label "owl:topObjectProperty" .
 
 
 #################################################################
@@ -147,33 +178,43 @@
 :has_abv rdf:type owl:DatatypeProperty ,
                   owl:FunctionalProperty ;
          rdfs:domain :beer ;
-         rdfs:range xsd:float .
+         rdfs:range xsd:float ;
+         rdfs:comment "abv(alcohol) of the beer" ;
+         rdfs:label "has_abv" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_ibu
 :has_ibu rdf:type owl:DatatypeProperty ,
                   owl:FunctionalProperty ;
          rdfs:domain :beer ;
-         rdfs:range xsd:nonNegativeInteger .
+         rdfs:range xsd:nonNegativeInteger ;
+         rdfs:comment "ibu (bitterness) of the beer" ;
+         rdfs:label "has_ibu" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_srm
 :has_srm rdf:type owl:DatatypeProperty ,
                   owl:FunctionalProperty ;
          rdfs:domain :beer ;
-         rdfs:range xsd:positiveInteger .
+         rdfs:range xsd:positiveInteger ;
+         rdfs:comment "color of the beer index" ;
+         rdfs:label "has_srm" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_year
 :has_year rdf:type owl:DatatypeProperty ;
           rdfs:domain :beer ;
-          rdfs:range xsd:nonNegativeInteger .
+          rdfs:range xsd:nonNegativeInteger ;
+          rdfs:comment "year of production" ;
+          rdfs:label "has_year" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#produces_hl
 :produces_hl rdf:type owl:DatatypeProperty ;
              rdfs:domain :beer_producer ;
-             rdfs:range xsd:positiveInteger .
+             rdfs:range xsd:positiveInteger ;
+             rdfs:comment "beer hL productions" ;
+             rdfs:label "produces_hl" .
 
 
 #################################################################
@@ -1625,6 +1666,10 @@
 
 owl:Thing rdfs:label "owl:Thing" ;
           rdfs:comment "thing" .
+
+
+owl:topDataProperty rdfs:comment "" ;
+                    rdfs:label "owl:topDataProperty" .
 
 
 #################################################################
