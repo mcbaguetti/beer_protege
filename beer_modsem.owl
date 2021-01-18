@@ -228,7 +228,7 @@ owl:topObjectProperty rdfs:comment "" ;
 
 ###  http://purl.org/dc/terms/creator
 <http://purl.org/dc/terms/creator> rdf:type owl:Class ;
-                                   rdfs:comment "creator" ;
+                                   rdfs:comment "creator with dc alignment" ;
                                    rdfs:label "dcterms:creator" .
 
 
