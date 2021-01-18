@@ -1161,87 +1161,125 @@
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer_ontology#Ca'_Del_Brado
 <http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer_ontology#Ca'_Del_Brado> rdf:type owl:NamedIndividual ;
-                                                                                      :creates :Nessun_Dorma .
+                                                                                      :creates :Nessun_Dorma ;
+                                                                                      rdfs:comment "Ca'_Del_Brado" ,
+                                                                                                   "brewery" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer_ontology#Fou'Foune
 <http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer_ontology#Fou'Foune> rdf:type owl:NamedIndividual ;
                                                                                   :has_fermentation :Wild_Fermented ;
                                                                                   :has_substyle :Fruit_Beer ;
-                                                                                  :has_abv "6.0"^^xsd:float .
+                                                                                  :has_abv "6.0"^^xsd:float ;
+                                                                                  rdfs:comment "beer" ;
+                                                                                  rdfs:label "Fou'Foune" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#American_Lager
-:American_Lager rdf:type owl:NamedIndividual .
+:American_Lager rdf:type owl:NamedIndividual ;
+                rdfs:comment "beer substyle" ;
+                rdfs:label "American_Lager" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#American_Light_Lager
-:American_Light_Lager rdf:type owl:NamedIndividual .
+:American_Light_Lager rdf:type owl:NamedIndividual ;
+                      rdfs:comment "beer substyle" ;
+                      rdfs:label "American_Light_Lager" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#American_Porter
-:American_Porter rdf:type owl:NamedIndividual .
+:American_Porter rdf:type owl:NamedIndividual ;
+                 rdfs:comment "beer substyle" ;
+                 rdfs:label "American_Porter" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#American_Wheat_Beer
-:American_Wheat_Beer rdf:type owl:NamedIndividual .
+:American_Wheat_Beer rdf:type owl:NamedIndividual ;
+                     rdfs:comment "beer substyle" ;
+                     rdfs:label "American_Wheat_Beer" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Baltic_Porter
-:Baltic_Porter rdf:type owl:NamedIndividual .
+:Baltic_Porter rdf:type owl:NamedIndividual ;
+               rdfs:comment "beer substyle" ;
+               rdfs:label "Baltic_Porter" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Belgium
 :Belgium rdf:type owl:NamedIndividual ,
-                  :region .
+                  :region ;
+         rdfs:comment "country" ;
+         rdfs:label "Belgium" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Bottle
-:Bottle rdf:type owl:NamedIndividual .
+:Bottle rdf:type owl:NamedIndividual ;
+        rdfs:comment "" ;
+        rdfs:label "Bottle" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Bottom_Fermented
-:Bottom_Fermented rdf:type owl:NamedIndividual .
+:Bottom_Fermented rdf:type owl:NamedIndividual ;
+                  rdfs:comment "" ;
+                  rdfs:label "Bottom_Fermented" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#British_Brown_Ale
-:British_Brown_Ale rdf:type owl:NamedIndividual .
+:British_Brown_Ale rdf:type owl:NamedIndividual ;
+                   rdfs:comment "beer substyle" ;
+                   rdfs:label "British_Brown_Ale" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Can
-:Can rdf:type owl:NamedIndividual .
+:Can rdf:type owl:NamedIndividual ;
+     rdfs:comment "" ;
+     rdfs:label "Can" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Cantillon
 :Cantillon rdf:type owl:NamedIndividual ,
                     :brewery ;
            :creates <http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer_ontology#Fou'Foune> ;
-           :located_in :Belgium .
+           :located_in :Belgium ;
+           rdfs:comment "brewery" ;
+           rdfs:label "Cantillon" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Caramelized_malt
 :Caramelized_malt rdf:type owl:NamedIndividual ,
-                           :special_malts .
+                           :special_malts ;
+                  rdfs:comment "" ;
+                  rdfs:label "Caramelized_malt" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Cream_Ale
-:Cream_Ale rdf:type owl:NamedIndividual .
+:Cream_Ale rdf:type owl:NamedIndividual ;
+           rdfs:comment "beer substyle" ;
+           rdfs:label "Cream_Ale" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Czech_Pale_Lager
-:Czech_Pale_Lager rdf:type owl:NamedIndividual .
+:Czech_Pale_Lager rdf:type owl:NamedIndividual ;
+                  rdfs:comment "beer substyle" ;
+                  rdfs:label "Czech_Pale_Lager" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#English_Barleywine
-:English_Barleywine rdf:type owl:NamedIndividual .
+:English_Barleywine rdf:type owl:NamedIndividual ;
+                    rdfs:comment "beer substyle" ;
+                    rdfs:label "English_Barleywine" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#English_Ipa
-:English_Ipa rdf:type owl:NamedIndividual .
+:English_Ipa rdf:type owl:NamedIndividual ;
+             rdfs:comment "beer substyle" ;
+             rdfs:label "English_Ipa" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#European_Sour
-:European_Sour rdf:type owl:NamedIndividual .
+:European_Sour rdf:type owl:NamedIndividual ;
+               rdfs:comment "beer substyle" ;
+               rdfs:label "European_Sour" .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Fruit_Beer
