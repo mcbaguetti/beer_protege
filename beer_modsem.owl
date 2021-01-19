@@ -1592,6 +1592,10 @@ owl:Thing rdfs:comment "thing" ;
 <http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Papessa> rdf:type owl:NamedIndividual ;
                                                                                <http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#created_by> <http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#LoverBeer> ;
                                                                                <http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_substyle> <http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Imperial_Russian_Stout> ;
+                                                                               <http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_abv> "7.0"^^xsd:float ;
+                                                                               <http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_ibu> 40 ;
+                                                                               <http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_srm> 50 ;
+                                                                               <http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_year> 2019 ;
                                                                                rdfs:comment "beer" ;
                                                                                rdfs:label "Papessa" .
 
