@@ -1640,6 +1640,7 @@ owl:Thing rdfs:comment "thing" ;
                                                                                         <http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#collab_beer> ;
                                                                                <http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_era> <http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Modern> ;
                                                                                <http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_substyle> <http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#Ordinary_Bitter> ;
+                                                                               <http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_abv> "5.5"^^xsd:float ;
                                                                                <http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_ibu> "45"^^xsd:nonNegativeInteger ;
                                                                                <http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_srm> "8"^^xsd:nonNegativeInteger ;
                                                                                <http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#has_year> "2018"^^xsd:nonNegativeInteger ;
