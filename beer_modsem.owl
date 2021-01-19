@@ -13,8 +13,8 @@
                                                                          <http://purl.org/dc/elements/1.1/date> "18/01/2021" ;
                                                                          <http://purl.org/dc/elements/1.1/description> "An Owl Ontology about beer classification" ;
                                                                          <http://purl.org/dc/elements/1.1/title> "Beer Ontology" ;
-                                                                         <http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#vann:preferredNamespacePrefix> "http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer_ontology" ;
-                                                                         <http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#vann:preferredNamespaceUri> "http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer/1.0" ;
+                                                                         <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#vann:preferredNamespacePrefix> "http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer_ontology" ;
+                                                                         <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#vann:preferredNamespaceUri> "http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer/1.0" ;
                                                                          rdfs:label "Beer Classification Ontology" .
 
 #################################################################
@@ -37,12 +37,12 @@
 <http://purl.org/dc/elements/1.1/title> rdf:type owl:AnnotationProperty .
 
 
-###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#vann:preferredNamespacePrefix
-<http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#vann:preferredNamespacePrefix> rdf:type owl:AnnotationProperty .
+###  http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#vann:preferredNamespacePrefix
+<http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#vann:preferredNamespacePrefix> rdf:type owl:AnnotationProperty .
 
 
-###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#vann:preferredNamespaceUri
-<http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#vann:preferredNamespaceUri> rdf:type owl:AnnotationProperty .
+###  http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#vann:preferredNamespaceUri
+<http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#vann:preferredNamespaceUri> rdf:type owl:AnnotationProperty .
 
 
 #################################################################
