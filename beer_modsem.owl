@@ -156,8 +156,7 @@
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#located_in
-<http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#located_in> rdf:type owl:ObjectProperty ,
-                                                                                           owl:TransitiveProperty ;
+<http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#located_in> rdf:type owl:ObjectProperty ;
                                                                                   rdfs:domain owl:Thing ;
                                                                                   rdfs:range <http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#region> ;
                                                                                   owl:propertyChainAxiom ( <http://www.semanticweb.org/tom/ontologies/2021/0/untitled-ontology-5#created_by>
