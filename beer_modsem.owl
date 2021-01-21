@@ -1291,6 +1291,11 @@ owl:topObjectProperty rdfs:comment "" ;
                                                                                 rdfs:label "yellow_colored" .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer_ontology#flavored_beer
+beer:flavored_beer rdf:type owl:Class ;
+                   rdfs:subClassOf <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#beer> .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer_ontology#swedish_beer
 beer:swedish_beer rdf:type owl:Class ;
                   rdfs:subClassOf <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#beer> .
@@ -1732,6 +1737,33 @@ owl:topDataProperty rdfs:comment "" ;
 beer:x rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
 
 beer:y rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "Beer that has flavor is flavored"^^xsd:string ;
+   rdfs:label "Flavored Beer"^^xsd:string ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#beer> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> beer:x
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#has_flavour> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> beer:x ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> beer:y
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> beer:flavored_beer ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> beer:x
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
 
 [ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
    rdfs:comment "a beer produced in sweden is swedish"^^xsd:string ;
