@@ -1531,6 +1531,10 @@ owl:Thing rdfs:comment "thing" ;
                                                                               <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#created_by> <http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer_ontology#Ca'_Del_Brado> ;
                                                                               <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#has_substyle> <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#European_Sour> ;
                                                                               <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#located_in> <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#Italy> ;
+                                                                              <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#has_abv> 6.4 ;
+                                                                              <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#has_ibu> 10 ;
+                                                                              <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#has_srm> 5 ;
+                                                                              <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#has_year> 2016 ;
                                                                               rdfs:comment "Nessun_Dorma" ,
                                                                                            "beer" .
 
@@ -1548,7 +1552,9 @@ owl:Thing rdfs:comment "thing" ;
                                                                                               <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#has_era> <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#Modern> ;
                                                                                               <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#has_substyle> <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#Baltic_Porter> ;
                                                                                               <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#has_abv> "12.0"^^xsd:float ;
+                                                                                              <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#has_ibu> 23 ;
                                                                                               <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#has_srm> "40"^^xsd:nonNegativeInteger ;
+                                                                                              <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#has_year> 2019 ;
                                                                                               rdfs:comment "brewery" ;
                                                                                               rdfs:label "Närke_Kaggen_Stormaktsporter" .
 
@@ -1616,6 +1622,8 @@ owl:Thing rdfs:comment "thing" ;
                                                                                    <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#has_substyle> <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#Fruit_Beer> ;
                                                                                    <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#has_abv> "5.5"^^xsd:float ;
                                                                                    <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#has_ibu> "25"^^xsd:positiveInteger ;
+                                                                                   <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#has_srm> 18 ;
+                                                                                   <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#has_year> 1998 ;
                                                                                    rdfs:comment "beer" ;
                                                                                    rdfs:label "Rosé_de_Gambrinus" .
 
@@ -1671,6 +1679,9 @@ owl:Thing rdfs:comment "thing" ;
                                                                                   <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#has_fermentation> <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#Wild_Fermented> ;
                                                                                   <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#has_substyle> <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#Fruit_Beer> ;
                                                                                   <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#has_abv> "6.0"^^xsd:float ;
+                                                                                  <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#has_ibu> 2 ;
+                                                                                  <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#has_srm> 14 ;
+                                                                                  <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#has_year> 2019 ;
                                                                                   rdfs:comment "beer" ;
                                                                                   rdfs:label "Fou'Foune" .
 
