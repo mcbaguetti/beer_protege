@@ -1561,6 +1561,7 @@ owl:Thing rdfs:comment "thing" ;
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#Närke_Kulturbryggeri
 <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#Närke_Kulturbryggeri> rdf:type owl:NamedIndividual ;
+                                                                                      <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#located_in> beer:Sweden ;
                                                                                       <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#produces_hl> "7000"^^xsd:nonNegativeInteger ;
                                                                                       rdfs:comment "beer" ;
                                                                                       rdfs:label "Närke_Kulturbryggeri" .
@@ -1665,6 +1666,10 @@ owl:Thing rdfs:comment "thing" ;
 <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#Wild_Fermented> rdf:type owl:NamedIndividual ;
                                                                                 rdfs:comment "" ,
                                                                                              "Wild_Fermented" .
+
+
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer_ontology#Sweden
+beer:Sweden rdf:type owl:NamedIndividual .
 
 
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer_ontology#Ca'_Del_Brado
