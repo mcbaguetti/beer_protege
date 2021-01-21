@@ -1296,6 +1296,11 @@ beer:flavored_beer rdf:type owl:Class ;
                    rdfs:subClassOf <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#beer> .
 
 
+###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer_ontology#my_favourite_beer
+beer:my_favourite_beer rdf:type owl:Class ;
+                       rdfs:subClassOf <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#beer> .
+
+
 ###  http://www.semanticweb.org/tom/ontologies/2021/0/modsem_beer_ontology#strong_bitter_beer
 beer:strong_bitter_beer rdf:type owl:Class ;
                         rdfs:subClassOf <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#beer> .
@@ -1743,9 +1748,9 @@ beer:x rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
 
 beer:y rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
 
-beer:srm rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
-
 beer:ibu rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+beer:srm rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
 
 [ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
    rdfs:comment "Beer that has flavor is flavored"^^xsd:string ;
@@ -1768,6 +1773,52 @@ beer:ibu rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
    <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
                                                        <http://www.w3.org/2003/11/swrl#classPredicate> beer:flavored_beer ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> beer:x
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "beer that has ibu < 20 and has Fruit beer style"^^xsd:string ;
+   rdfs:label "My Fav Kind of Beer"^^xsd:string ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#beer> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> beer:x
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#has_ibu> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> beer:x ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> beer:ibu
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first beer:ibu ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 20 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#has_substyle> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> beer:x ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/tom/ontologies/2021/0/beer-ontology#Fruit_Beer>
+                                                                                      ] ;
+                                                                            rdf:rest rdf:nil
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> beer:my_favourite_beer ;
                                                        <http://www.w3.org/2003/11/swrl#argument1> beer:x
                                                      ] ;
                                            rdf:rest rdf:nil
